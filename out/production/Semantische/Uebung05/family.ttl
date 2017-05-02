@@ -1,0 +1,36 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix :     <http://example.org/> .
+
+
+:husband 
+  rdfs:domain :Woman; 
+  rdfs:range :Man;
+  rdfs:subPropertyOf :spouse.
+
+:wife 
+  rdfs:domain :Man;
+  rdfs:range :Woman;
+  rdfs:subPropertyOf :spouse.
+      
+:spouse 
+  rdfs:subPropertyOf :knows.
+
+:friend 
+  rdfs:subPropertyOf :knows.
+	
+:Man 
+  rdfs:subClassOf :Person.
+
+:Woman 
+  rdfs:subClassOf :Person.
+
+:Person
+  rdfs:subClassOf :Agent.
+
+:Jane :husband :Bill.
+
+:John :wife :Mary;
+      :knows :Bill.
+
+	

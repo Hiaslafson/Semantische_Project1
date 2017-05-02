@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://example.org/> 
+
+SELECT DISTINCT ?s ?p ?o
+WHERE
+  { GRAPH ?g { ?s ?p ?o }
+    FILTER NOT EXISTS {
+      ?person a :Person; :ownsGraph ?g2.
+      FILTER NOT EXISTS { GRAPH ?g2 {?s ?p ?o} }
+    }
+  }

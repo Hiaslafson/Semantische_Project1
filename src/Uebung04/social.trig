@@ -1,0 +1,28 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/> .
+
+:Jane a :Person, :Woman;
+  :owns :JanesGraph.
+
+:Mary a :Person, :Woman;
+  :owns :MarysGraph.
+  
+:Bill a :Person, :Man;
+  :owns :BillsGraph.
+  
+:BillsGraph {
+  :Jane :likes :Mary, :Bill.
+  :Bill :likes :Mary, :Jane.
+} 
+ 
+:JanesGraph { 
+  :Jane :likes :Mary.
+  :Bill :likes :Jane, :Mary.
+}
+
+:MarysGraph {
+  :Jane :likes :Mary.
+  :Bill :likes :Jane.
+  :Mary :likes :Jane.
+}
+	
