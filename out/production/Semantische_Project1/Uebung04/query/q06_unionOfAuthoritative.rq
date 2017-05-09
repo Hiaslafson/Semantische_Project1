@@ -1,0 +1,10 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://example.org/> 
+
+SELECT ?s ?p ?o
+WHERE 
+  {  ?s a :Person; 
+        :owns ?g.
+     GRAPH ?g 
+         {?s ?p ?o}
+  }

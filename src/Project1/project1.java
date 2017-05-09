@@ -2,6 +2,7 @@ package Project1;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.tdb.TDBFactory;
 
+import java.util.List;
 import java.util.Scanner;
 /**
  * Created by MatthiasW on 02.05.2017.
@@ -12,7 +13,8 @@ public class project1 {
 
 
         Scanner scanner = new Scanner(System.in);
-        RDFHelper rdf = new RDFHelper();
+        PersonDataset rdf = new PersonDataset();
+
        while (true) {
            System.out.println("i: Insert Person  -   u: Update Person -  d: Delete Person");
            String input = scanner.nextLine();
@@ -29,59 +31,62 @@ public class project1 {
                  p.gender = scanner.nextLine();
                 System.out.println("Employer:");
                 p.employer = scanner.nextLine();
-                rdf.Insert(p);
+                rdf.addPerson(p);
+                rdf.printPerson();
             } else if(input.equals("u")){
-                System.out.println("Update Person with name:");
+                System.out.println("Update Person with id:");
                 //Find Person
-                String name = scanner.nextLine();
-                Person foundPerson = rdf.Get(name);
-                if(foundPerson != null) {
-                    Person p = new Person();
+                int id = Integer.parseInt(scanner.nextLine());
+                Person p = rdf.getPerson(id);
+                if(p != null) {
                     System.out.println("Update Person (mit - überspringen)");
-                    System.out.println(foundPerson.name + " neuer Name:");
+                    System.out.println(p.name + " neuer Name:");
                     String value = scanner.nextLine();
                     if(!value.equals("-")) {
-                        p.name = scanner.nextLine();
+                        p.name = value;
                     }
-                   System.out.println("Adress:");
+                   System.out.println(p.getAdress() + "Adress:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
-                        p.adress = scanner.nextLine();
+                        p.adress = value;
                     }
-                    System.out.println("Birthday:");
+                    System.out.println(p.getDate() + "Birthday:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
-                        p.date = scanner.nextLine();
-                    }System.out.println("Gender:");
+                        p.date = value;
+                    }System.out.println(p.getGender() + "Gender:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
-                        p.gender = scanner.nextLine();
-                    }System.out.println("Employer:");
+                        p.gender = value;
+                    }System.out.println(p.getEmployer() + "Employer:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
-                        p.employer = scanner.nextLine();
+                        p.employer = value;
                     }
-                    int returnValue = rdf.Update(p,name);
-                    if(returnValue == 0) {
-                        System.out.println("Person geändert");
-                    } else {
-                        System.out.println("Fehler");
-                    }
+                    rdf.updatePerson(p);
+                   System.out.println("Person geändert");
                 } else {
                     System.out.println("Keine Person gefunden");
                 }
 
+
             } else  if(input.equals("d")){
                 System.out.println("Delete Person with name:");
-                String name = scanner.nextLine();
-                Person foundPerson = rdf.Get(name);
+                int id = Integer.parseInt(scanner.nextLine());
+                Person foundPerson = rdf.getPerson(id);
                 if(foundPerson != null) {
-                   int returnValue = rdf.Delete(name);
-                    if(returnValue == 0) {
-                        System.out.println("Person gelöscht");
-                    } else {
-                        System.out.println("Fehler");
-                    }
+                    rdf.deletePerson(id);
+                    System.out.println("Person gelöscht");
+                } else {
+                    System.out.println("Keine Person gefunden");
+            }
+            }else  if(input.equals("f")){
+                System.out.println("Filter Attribut:");
+                String f = scanner.nextLine();
+                List<Person> foundPersons = rdf.filtern(f);
+
+                if(foundPersons != null) {
+                    System.out.println(foundPersons.toString());
                 } else {
                     System.out.println("Keine Person gefunden");
                 }
