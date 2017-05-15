@@ -13,6 +13,7 @@ public class project1 {
 
 
         Scanner scanner = new Scanner(System.in);
+
         PersonDataset rdf = new PersonDataset();
 
         while (true) {
@@ -86,15 +87,15 @@ public class project1 {
             } else if (input.equals("f")) {
                 System.out.println("Filter Attribut:");
                 String f = scanner.nextLine();
-                List<Person> foundPersons = rdf.filtern(f);
-
-                if (foundPersons != null) {
+               // List<Person> foundPersons = rdf.filtern(f);
+                rdf.filtern(f);
+            /*    if (foundPersons != null) {
                     System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
                             "-----------------------------------------------------------------------------------------" );
                     System.out.println(foundPersons.toString());
                 } else {
                     System.out.println("Keine Person gefunden");
-                }
+                }*/
             } else if (input.equals("s")) {
                 System.out.println("Search Person by id:");
                 int id = Integer.parseInt(scanner.nextLine());
@@ -122,7 +123,9 @@ public class project1 {
 
             }else if (input.equals("k")) {
 
-              rdf.syncModel();
+             //   rdf.addPerson();
+
+              rdf.printPerson();
 
             }
         }

@@ -6,6 +6,9 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDB;
 import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.update.UpdateAction;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateRequest;
 import org.apache.jena.vocabulary.VCARD;
 
 
@@ -20,12 +23,12 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
-public class PersonDataset
-{
+public class PersonDataset {
 	public static Dataset dataset;
 	private static Model m, m_deleted;
+	private static int Id = 0;
 
-	public static String source = "C:\\Users\\MatthiasW\\Documents\\Semantische_Project1\\src\\Project1\\tdb\\person.rdf";
+//	public static String source = "C:\\Users\\MatthiasW\\Documents\\Semantische_Project1\\src\\Project1\\tdb\\person.rdf";
 
 
 //Testdaten
@@ -46,15 +49,14 @@ public class PersonDataset
 		p2.setEmployer("Asfinag");
 		p2.setGender("weiblich");
 
-		addPerson(p1);
-		addPerson(p2);
+		//addPerson(p1);
+		//addPerson(p2);
 	}
 
-	public PersonDataset()
-	{
+	public PersonDataset() {
 
 		dataset = TDBFactory.assembleDataset(
-				PersonDataset.class.getResource("tdb-assembler.ttl").getPath()) ;
+				PersonDataset.class.getResource("tdb-assembler.ttl").getPath());
 
 		//m = dataset.getDefaultModel();
 		//m = dataset.getNamedModel("DatasetTDB");
@@ -66,87 +68,169 @@ public class PersonDataset
 		getPersonModel().setNsPrefix("vcard", VCARD.getURI());
 		//RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
 		addModels();
+
 	}
 	
-	public static void addPerson(Person person)
+	/* public static void addPerson(Person person)
 	{
 
 		PersonFactory.createResourcePerson(person, getPersonModel());
+	} */
+
+	public static void addPerson(Person p) {
+		Id = Id +1;
+		dataset.begin(ReadWrite.WRITE); // START TRANSACTION
+		try {
+			UpdateRequest request = UpdateFactory.create("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+					"PREFIX person: <http://www.example/person/>\n" +
+					"PREFIX semtech:     <http://www.example/semtech.rdf#>\n" +
+					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n" +
+					"\n" +
+					"INSERT DATA { \n" +
+					"\tGRAPH semtech:defaultGraph {\n" +
+					"\tperson:p" + Id + " a semtech:Person;\n" +
+					"\t    vcard:UID \"" + Id + "\";\n" +
+					"\t    vcard:Name \"" + p.getName() + "\";\n" +
+					"\t    semtech:gender \"" + p.getGender() + "\";\n" +
+					"\t    vcard:ADR \"" + p.getAdress() + "\";\n" +
+					"\t    semtech:employer \"" + p.getEmployer() + "\";\n" +
+					"\t    .\n" +
+					"\t}\n" +
+					"}");
+			UpdateAction.execute(request, dataset);
+			dataset.commit();
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+			dataset.abort(); //
+		} finally {
+			dataset.end(); // END TRANSACTION (ABORT IF NO COMMIT)
+		}
 	}
 
-	public static void deletePerson(int id)
-	{
-			Model persons = getPersonModel();
-			Model deletedpersons = getPersonDeletedModel();
+	/* public static void deletePerson(int id) {
+		Model persons = getPersonModel();
+		Model deletedpersons = getPersonDeletedModel();
 
 		Resource F_personToDelete = persons.getResource(Namespaces.nsPerson + id);
 
-			StmtIterator stmts = persons.listStatements(F_personToDelete, null, (RDFNode)null);
+		StmtIterator stmts = persons.listStatements(F_personToDelete, null, (RDFNode) null);
 
 
-			deletedpersons.add(persons.listStatements(F_personToDelete, null, (RDFNode)null));
+		deletedpersons.add(persons.listStatements(F_personToDelete, null, (RDFNode) null));
 
-			Resource r = persons.getResource(Namespaces.nsPerson + id);
-			persons.removeAll(r, null, (RDFNode) null);
-			persons.removeAll(null, null, r);
-			
+		Resource r = persons.getResource(Namespaces.nsPerson + id);
+		persons.removeAll(r, null, (RDFNode) null);
+		persons.removeAll(null, null, r);
 
-			System.out.println("Model m:\n");
-			RDFDataMgr.write(System.out, persons, Lang.TURTLE);
 
-			System.out.println("Model m_deleted:\n");
-			RDFDataMgr.write(System.out, deletedpersons, Lang.TURTLE);
+		System.out.println("Model m:\n");
+		RDFDataMgr.write(System.out, persons, Lang.TURTLE);
+
+		System.out.println("Model m_deleted:\n");
+		RDFDataMgr.write(System.out, deletedpersons, Lang.TURTLE);
+	}*/
+	public static void deletePerson(int id) {
+		//Person by ID
+		//get The Person
+		//Insert in deltetGraph
+		//delete Person
+		List<String> x = new ArrayList<>();
+ 		dataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
+				ResultSet res = qEx.execSelect();
+				Model m = res.getResourceModel();
+
+				ResultSetFormatter.out(System.out, res, q);
+				ResultSetFormatter.toList(res);
+
+			}
+		} finally {
+			dataset.end();
+		}
+
 	}
-	
-	public static void updatePerson(Person person)
-	{
+
+	public static void updatePerson(Person person) {
 		Resource F_personToEdit = getPersonModel().getResource(Namespaces.nsPerson + person.getId());
-		if(person.getId() != -1)
-		{
+		if (person.getId() != -1) {
 			PersonFactory.changeResource(F_personToEdit, getPersonModel(), person);
 		}
 
 	}
 
 
-
-	
-	public static Person getPerson(Integer id)
-	{
-		return PersonFactory.loadPersonFromURI( Namespaces.nsPerson + id ,  getPersonModel());
+	public static Person getPerson(Integer id) {
+		return PersonFactory.loadPersonFromURI(Namespaces.nsPerson + id, getPersonModel());
 	}
 
-	public static List<Person> getAllPerson()
-{
-	Model personsModel = getPersonModel();
-	//String filter = "";
-	List<Person> persons = new ArrayList<Person>();
+	public static List<Person> getAllPerson() {
+		Model personsModel = getPersonModel();
+		//String filter = "";
+		List<Person> persons = new ArrayList<Person>();
 
 
-	ResultSet r_personsWithValue  = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. }", personsModel);
+		ResultSet r_personsWithValue = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. }", personsModel);
 
 
-	persons =  PersonFactory.getPersonFromResultSet(r_personsWithValue, getPersonModel());
+		persons = PersonFactory.getPersonFromResultSet(r_personsWithValue, getPersonModel());
 
-	//persons = PersonFactory.getPersonFromResultSet(F_personsWithValue, getPersonModel());
+		//persons = PersonFactory.getPersonFromResultSet(F_personsWithValue, getPersonModel());
 
-	return persons;
+		return persons;
 
 
-
-}
+	}
 
 
 
 
 
-	public static void printPerson(){
+	/* public static void printPerson(){
 		RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
 
+	} */
+
+	public static void printPerson() {
+		dataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
+				ResultSet res = qEx.execSelect();
+				Model m = res.getResourceModel();
+
+				ResultSetFormatter.out(System.out, res, q);
+
+				//System.out.println(f.getResource("UID"));
+
+
+			}
+		} finally {
+			dataset.end();
+		}
+	}
+
+	public static void filtern(String filter) {
+		dataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v. FILTER regex(?o, \"" + filter  + "\", \"i\")} UNION {GRAPH ?g {?person ?o ?v" +
+					"}}}");
+			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
+				ResultSet res = qEx.execSelect();
+				Model m = res.getResourceModel();
+
+				ResultSetFormatter.out(System.out, res, q);
+			}
+		} finally {
+			dataset.end();
+		}
 	}
 
 
-	public static List<Person> filtern(String filter)
+
+
+/*	public static List<Person> filtern(String filter)
 	{
 		Model personsModel = getPersonModel();
 		List<Person> persons = new ArrayList<Person>();
@@ -173,7 +257,7 @@ public class PersonDataset
 			System.out.println(exc);
 		}
 		return persons;
-	}
+	} */
 
 	public static ResultSet executeSelectFilter(String sql, Model m){
 		Query query = QueryFactory.create(sql);

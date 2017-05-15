@@ -6,7 +6,7 @@ import java.sql.Date;
  * Created by MatthiasW on 02.05.2017.
  */
 public class Person {
-    int id = -1;
+    int id = 0;
     String name;
     String adress;
     String date;
