@@ -61,34 +61,34 @@ public class PersonFactory
 		return externResource;
 	}
 
-	/**
-	 * Diese Methode konvertiert ein ResultSet in eine Personenliste
-	 * Das erste Attribut muss ?person heißen.
-	 * @return
-	 */
+
 	public static List<Person> getPersonFromResultSet(ResultSet aResultSet, Model m){
+
+		String temp ="";
 		
 		List<Person> persons = new ArrayList<Person>();
 		while(aResultSet.hasNext())
 		{
 
-	        QuerySolution qPerson = aResultSet.nextSolution();
+
+			QuerySolution qPerson = aResultSet.nextSolution();
 	        String uriString = qPerson.get("person").toString();
-	        
-	        if(uriString.contains(Namespaces.nsPerson)){
-		        try{
-		        	Person person = loadPersonFromURI(uriString, m);
-		        	if(!persons.contains(person)){
-			        	persons.add(person);
-		        	}
+	        if (!temp.equals(uriString)){
+				if(uriString.contains(Namespaces.nsPerson)){
+					try{
+						Person person = loadPersonFromURI(uriString, m);
+						if(!persons.contains(person)){
+							persons.add(person);
+						}
 
-		        }
-		        catch(Exception exc){
-		        	System.out.print(exc);
+					}
+					catch(Exception exc){
+						System.out.print(exc);
 
-		        }
+					}
+					temp = uriString;
 	        }	       
-		}
+		}}
 		return persons;
 	}
 	public static Person loadPersonFromURI(String uriString, Model m){

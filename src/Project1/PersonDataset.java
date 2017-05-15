@@ -68,23 +68,9 @@ public class PersonDataset
 		Resource F_personToDelete = persons.getResource(Namespaces.nsPerson + id);
 
 			StmtIterator stmts = persons.listStatements(F_personToDelete, null, (RDFNode)null);
-			
-			String Fs_addressID = null;
-			while(stmts.hasNext())
-			{
-				Statement F_stmt = stmts.next();
-				if(F_stmt.getPredicate().toString().contains("http://www.w3.org/2001/vcard-rdf/3.0#ADR"))
-				{
-					Fs_addressID = F_stmt.getObject().toString();
-					break;
-				}
-			}
 
-			Resource F_addressToDelete = persons.getResource(Fs_addressID);
-			StmtIterator stmtsAdr = persons.listStatements(F_addressToDelete, null, (RDFNode)null);
 
 			deletedpersons.add(persons.listStatements(F_personToDelete, null, (RDFNode)null));
-			deletedpersons.add(stmtsAdr);
 
 			Resource r = persons.getResource(Namespaces.nsPerson + id);
 			persons.removeAll(r, null, (RDFNode) null);
@@ -116,14 +102,37 @@ public class PersonDataset
 		return PersonFactory.loadPersonFromURI( Namespaces.nsPerson + id ,  getPersonModel());
 	}
 
+	public static List<Person> getAllPerson()
+{
+	Model personsModel = getPersonModel();
+	//String filter = "";
+	List<Person> persons = new ArrayList<Person>();
+
+
+	ResultSet r_personsWithValue  = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. }", personsModel);
+
+
+	persons =  PersonFactory.getPersonFromResultSet(r_personsWithValue, getPersonModel());
+
+	//persons = PersonFactory.getPersonFromResultSet(F_personsWithValue, getPersonModel());
+
+	return persons;
+
+
+
+}
+
+
+
 
 
 	public static void printPerson(){
 		RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
+
 	}
 
 
-	public static List<Person> filtern(String Ps_feldWert)
+	public static List<Person> filtern(String filter)
 	{
 		Model personsModel = getPersonModel();
 		List<Person> persons = new ArrayList<Person>();
@@ -131,11 +140,11 @@ public class PersonDataset
 		try
 		{
 
-			ResultSet F_personsWithValue  = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. "+
-					"FILTER regex(?o, \"" +Ps_feldWert + "\", \"i\")}", personsModel); //i means insensitive
+			ResultSet r_personsWithValue  = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. "+
+					"FILTER regex(?o, \"" +filter + "\", \"i\")}", personsModel);
 
 
-			List<Person> newPersons =  PersonFactory.getPersonFromResultSet(F_personsWithValue, getPersonModel());
+			List<Person> newPersons =  PersonFactory.getPersonFromResultSet(r_personsWithValue, getPersonModel());
 
 			//persons = PersonFactory.getPersonFromResultSet(F_personsWithValue, getPersonModel());
 
@@ -162,7 +171,7 @@ public class PersonDataset
 			}
 			else
 			{
-				throw new RuntimeException("Wrong query type.");
+				throw new RuntimeException("Wrong query");
 			}
 		}
 		catch(Exception exc){

@@ -66,6 +66,8 @@ public class Person {
         this.employer = employer;
     }
      public String toString(){
-         return "Name: " + getName() + "     Adresse: " + getAdress() + "   Geburtstag: " + getDate() + "    Gender: " + getGender() + "    Arbeitgeber: " + getEmployer() + "\n" ;
+         return
+                ""+ getId() +"     |  "+    getName()  +"  |    "+ getAdress() +  "  |    " +getDate() + "   |   " + getGender() + "    |    "+ getEmployer()  + "\n"
+                 +"-----------------------------------------------------------------------------------------"  +"\n";
      }
 }
