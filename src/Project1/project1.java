@@ -109,7 +109,7 @@ public class project1 {
                 }
             } else if (input.equals("p")) {
 
-               System.out.println("All Persons:");
+                System.out.println("All Persons:");
                 List<Person> foundPersonsAll = rdf.getAllPerson();
 
                 if (foundPersonsAll != null) {
@@ -119,6 +119,10 @@ public class project1 {
                 } else {
                     System.out.println("Keine Person gefunden");
                 }
+
+            }else if (input.equals("k")) {
+
+              rdf.syncModel();
 
             }
         }

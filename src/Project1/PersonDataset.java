@@ -1,7 +1,11 @@
 package Project1;
+import Uebung05.C5_2_UpdateTDB;
+import org.apache.jena.assembler.Mode;
 import org.apache.jena.query.*;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.tdb.TDB;
+import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.vocabulary.VCARD;
 
 
@@ -20,6 +24,9 @@ public class PersonDataset
 {
 	public static Dataset dataset;
 	private static Model m, m_deleted;
+
+	public static String source = "C:\\Users\\MatthiasW\\Documents\\Semantische_Project1\\src\\Project1\\tdb\\person.rdf";
+
 
 //Testdaten
 
@@ -45,12 +52,19 @@ public class PersonDataset
 
 	public PersonDataset()
 	{
-		setPersonModel(ModelFactory.createDefaultModel());
+
+		dataset = TDBFactory.assembleDataset(
+				PersonDataset.class.getResource("tdb-assembler.ttl").getPath()) ;
+
+		//m = dataset.getDefaultModel();
+		//m = dataset.getNamedModel("DatasetTDB");
+		m = ModelFactory.createDefaultModel();
+		setPersonModel(m);
 		m_deleted = ModelFactory.createDefaultModel();
 		getPersonModel().setNsPrefix("x", Namespaces.nsX);
 		getPersonModel().setNsPrefix("person", Namespaces.nsPerson);
 		getPersonModel().setNsPrefix("vcard", VCARD.getURI());
-
+		//RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
 		addModels();
 	}
 	
@@ -181,7 +195,12 @@ public class PersonDataset
 	}
 
 
-
+public static void syncModel(){
+	dataset.begin(ReadWrite.WRITE);
+	dataset.addNamedModel("person", getPersonModel());
+	dataset.end();
+	dataset.close();
+}
 
 
 
