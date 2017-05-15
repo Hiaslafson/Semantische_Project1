@@ -21,6 +21,8 @@ public class PersonDataset
 	public static Dataset dataset;
 	private static Model m, m_deleted;
 
+//Testdaten
+
 
 	private static void addModels() {
 		Person p1 = new Person(-1);
@@ -45,7 +47,6 @@ public class PersonDataset
 	{
 		setPersonModel(ModelFactory.createDefaultModel());
 		m_deleted = ModelFactory.createDefaultModel();
-		// Namespace definitions in RDF model
 		getPersonModel().setNsPrefix("x", Namespaces.nsX);
 		getPersonModel().setNsPrefix("person", Namespaces.nsPerson);
 		getPersonModel().setNsPrefix("vcard", VCARD.getURI());
@@ -65,8 +66,7 @@ public class PersonDataset
 			Model deletedpersons = getPersonDeletedModel();
 
 		Resource F_personToDelete = persons.getResource(Namespaces.nsPerson + id);
-			
-			// Alle Daten der zu loeschenden Person in das Archiv kopieren
+
 			StmtIterator stmts = persons.listStatements(F_personToDelete, null, (RDFNode)null);
 			
 			String Fs_addressID = null;
@@ -86,17 +86,14 @@ public class PersonDataset
 			deletedpersons.add(persons.listStatements(F_personToDelete, null, (RDFNode)null));
 			deletedpersons.add(stmtsAdr);
 
-			// Alle Daten der zu loeschenden Person aus dem Model entfernen
 			Resource r = persons.getResource(Namespaces.nsPerson + id);
-			// remove statements where resource is subject
 			persons.removeAll(r, null, (RDFNode) null);
-			// remove statements where resource is object
 			persons.removeAll(null, null, r);
 			
-			System.out.println("----------------------------------------------------\n");
+
 			System.out.println("Model m:\n");
 			RDFDataMgr.write(System.out, persons, Lang.TURTLE);
-			System.out.println("----------------------------------------------------\n");
+
 			System.out.println("Model m_deleted:\n");
 			RDFDataMgr.write(System.out, deletedpersons, Lang.TURTLE);
 	}
@@ -109,9 +106,6 @@ public class PersonDataset
 			PersonFactory.changeResource(F_personToEdit, getPersonModel(), person);
 		}
 
-		System.out.println("----------------------------------------------------\n");
-		System.out.println("editPerson: Model m: NACHER: \n");
-		RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
 	}
 
 
@@ -123,17 +117,8 @@ public class PersonDataset
 	}
 
 
-	/*public static void getAllPersons(){
-		Query query = QueryFactory.create("SELECT  ?person ?v ?o WHERE {?person ?v ?o }");
-		QueryExecution qexec = QueryExecutionFactory.create(query, getPersonModel()) ;
-
-		ResultSet F_allData  = qexec.execSelect();
-
-
-	}*/
 
 	public static void printPerson(){
-		System.out.println("No Persons found");
 		RDFDataMgr.write(System.out, getPersonModel(), Lang.TURTLE);
 	}
 
@@ -146,7 +131,7 @@ public class PersonDataset
 		try
 		{
 
-			ResultSet F_personsWithValue  = rdfHelper.executeSelect("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. "+
+			ResultSet F_personsWithValue  = executeSelectFilter("SELECT  ?person ?v ?o  WHERE {?person ?v ?o. "+
 					"FILTER regex(?o, \"" +Ps_feldWert + "\", \"i\")}", personsModel); //i means insensitive
 
 
@@ -157,28 +142,6 @@ public class PersonDataset
 		return newPersons;
 
 
-		/*	for(Person newPerson : newPersons){
-				if(newPerson.getGender().contains(Ps_feldWert) || newPerson.getAdress().contains(Ps_feldWert)){
-					persons.add(newPerson);
-				}*/
-
-			//loadPersons by addresss
-		/*	while(F_personsWithValue.hasNext())
-			{
-				QuerySolution qsPerson = F_personsWithValue.nextSolution();
-				String uriString = qsPerson.get("person").toString();
-				if(uriString.contains(Namespaces.nsGender)){ //address is nsX
-					ResultSet personResultSet  = rdfHelper.executeSelect("SELECT  ?person ?v ?o WHERE {?person ?v <" + uriString + "> }", m);
-					// alle Personendaten ausgeben, die den Filterkriterien entsprechen
-					List<Person> newPersons = PersonFactory.getPersonFromResultSet(personResultSet, getPersonModel());
-					for(Person newPerson : newPersons){
-						if(newPerson.getGender().contains(Ps_feldWert) || newPerson.getAdress().contains(Ps_feldWert)){
-							persons.add(newPerson);
-						}
-					}
-
-				}*/
-
 		}
 
 
@@ -187,6 +150,25 @@ public class PersonDataset
 			System.out.println(exc);
 		}
 		return persons;
+	}
+
+	public static ResultSet executeSelectFilter(String sql, Model m){
+		Query query = QueryFactory.create(sql);
+		QueryExecution qexec = QueryExecutionFactory.create(query, m) ;
+		try {
+			if (query.isSelectType()) {
+				ResultSet results = qexec.execSelect() ;
+				return results;
+			}
+			else
+			{
+				throw new RuntimeException("Wrong query type.");
+			}
+		}
+		catch(Exception exc){
+			System.out.println(exc.toString());
+		}
+		return null;
 	}
 
 

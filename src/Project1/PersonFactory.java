@@ -35,22 +35,20 @@ public class PersonFactory
 			p.setId(Id);
 		}
 		
-		Resource F_person = m.createResource(Namespaces.nsPerson + p.getId());
+		Resource r_person = m.createResource(Namespaces.nsPerson + p.getId());
 		Property gender = m.createProperty(Namespaces.nsGender);
 		Property employer = m.createProperty(Namespaces.nsXEmployer);
-	//	Property adress = m.createProperty(Namespaces.nsXAddress);
 
-		
-		F_person.addProperty(VCARD.UID, m.createTypedLiteral(p.getId()))
+
+		r_person.addProperty(VCARD.UID, m.createTypedLiteral(p.getId()))
 				.addProperty(VCARD.ADR, m.createLiteral(p.getAdress()))
 				.addProperty(VCARD.NAME, m.createLiteral(p.getName()))
 				.addProperty(VCARD.BDAY, m.createTypedLiteral(p.getDate()))
-			//	.addProperty(adress, m.createLiteral(p.getAdress()))
 				.addProperty(gender, m.createLiteral(p.getGender()))
 				.addProperty(employer, m.createLiteral(p.getEmployer()));
 
 
-		return F_person;
+		return r_person;
 	}
 	
 	public static Resource getExternResource(String uri)
@@ -68,15 +66,14 @@ public class PersonFactory
 	 * Das erste Attribut muss ?person heißen.
 	 * @return
 	 */
-	public static List<Person> getPersonFromResultSet(ResultSet allResultSet, Model m){
+	public static List<Person> getPersonFromResultSet(ResultSet aResultSet, Model m){
 		
 		List<Person> persons = new ArrayList<Person>();
-		//ResultSetFormatter.out(System.out, F_persons);
-		while(allResultSet.hasNext())
+		while(aResultSet.hasNext())
 		{
-			// alle Personendaten ausgeben, die den Filterkriterien entsprechen
-	        QuerySolution qsPerson = allResultSet.nextSolution();
-	        String uriString = qsPerson.get("person").toString();
+
+	        QuerySolution qPerson = aResultSet.nextSolution();
+	        String uriString = qPerson.get("person").toString();
 	        
 	        if(uriString.contains(Namespaces.nsPerson)){
 		        try{
@@ -88,8 +85,7 @@ public class PersonFactory
 		        }
 		        catch(Exception exc){
 		        	System.out.print(exc);
-		        	/**Es kann sein, dass andere resourcen sich im Ergebnis befinden als personen*/
-		        	/**Dies wird hier gefangen*/
+
 		        }
 	        }	       
 		}
@@ -110,12 +106,10 @@ public class PersonFactory
         return person;
 	}
 
-	public static void changeResource(Resource F_persons, Model m, Person person){
-		StmtIterator stmts = m.listStatements(F_persons, null, (RDFNode)null);
+	public static void changeResource(Resource r_persons, Model m, Person person){
+		StmtIterator stmts = m.listStatements(r_persons, null, (RDFNode)null);
 		 
-		System.out.println("----------------------------------------------------\n");
-		System.out.println("editPerson: Model m: VORHER: \n");
-		RDFDataMgr.write(System.out, m, Lang.TURTLE);
+
 		Property geschlecht = m.createProperty(Namespaces.nsGender);
 		Property employer = m.createProperty(Namespaces.nsXEmployer);
 			

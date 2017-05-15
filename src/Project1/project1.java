@@ -16,7 +16,7 @@ public class project1 {
         PersonDataset rdf = new PersonDataset();
 
        while (true) {
-           System.out.println("i: Insert Person  -   u: Update Person -  d: Delete Person");
+           System.out.println("i: Insert Person  -   u: Update Person -  d: Delete Person   -  f: Filter Person   -  s:Search Person");
            String input = scanner.nextLine();
             if(input.equals("i")){
                 Person p = new Person();
@@ -40,38 +40,39 @@ public class project1 {
                 Person p = rdf.getPerson(id);
                 if(p != null) {
                     System.out.println("Update Person (mit - überspringen)");
-                    System.out.println(p.name + " neuer Name:");
+                    System.out.println(p.name + "   neuer Name:");
                     String value = scanner.nextLine();
                     if(!value.equals("-")) {
                         p.name = value;
                     }
-                   System.out.println(p.getAdress() + "Adress:");
+                   System.out.println(p.getAdress() + "  Adress:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
                         p.adress = value;
                     }
-                    System.out.println(p.getDate() + "Birthday:");
+                    System.out.println(p.getDate() + "   Birthday:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
                         p.date = value;
-                    }System.out.println(p.getGender() + "Gender:");
+                    }System.out.println(p.getGender() + "   Gender:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
                         p.gender = value;
-                    }System.out.println(p.getEmployer() + "Employer:");
+                    }System.out.println(p.getEmployer() + "   Employer:");
                     value = scanner.nextLine();
                     if(!value.equals("-")) {
                         p.employer = value;
                     }
                     rdf.updatePerson(p);
                    System.out.println("Person geändert");
+                    rdf.printPerson();
                 } else {
                     System.out.println("Keine Person gefunden");
                 }
 
 
             } else  if(input.equals("d")){
-                System.out.println("Delete Person with name:");
+                System.out.println("Delete Person with id:");
                 int id = Integer.parseInt(scanner.nextLine());
                 Person foundPerson = rdf.getPerson(id);
                 if(foundPerson != null) {
@@ -87,6 +88,16 @@ public class project1 {
 
                 if(foundPersons != null) {
                     System.out.println(foundPersons.toString());
+                } else {
+                    System.out.println("Keine Person gefunden");
+                }
+            }else  if(input.equals("s")){
+                System.out.println("Search Person by id:");
+                int id = Integer.parseInt(scanner.nextLine());
+                Person foundPerson = rdf.getPerson(id);
+
+                if(foundPerson != null) {
+                    System.out.println(foundPerson .toString());
                 } else {
                     System.out.println("Keine Person gefunden");
                 }
