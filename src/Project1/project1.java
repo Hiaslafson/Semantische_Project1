@@ -38,7 +38,7 @@ public class project1 {
                 System.out.println("Update Person with id:");
                 //Find Person
                 int id = Integer.parseInt(scanner.nextLine());
-                Person p = rdf.getPerson(id);
+                Person p = rdf.getPersonByID(id);
                 if (p != null) {
                     System.out.println("Update Person (mit - überspringen)");
                     System.out.println(p.name + "   neuer Name:");
@@ -75,31 +75,46 @@ public class project1 {
 
 
             } else if (input.equals("d")) {
-                System.out.println("Delete Person with id:");
-                int id = Integer.parseInt(scanner.nextLine());
-                Person foundPerson = rdf.getPerson(id);
+              /*  System.out.println("Delete Person with id:");
+                int id = Integer.parseInt(scanner.nextLine());Person foundPerson = rdf.getPerson(id);
                 if (foundPerson != null) {
                     rdf.deletePerson(id);
                     System.out.println("Person gelöscht");
                 } else {
                     System.out.println("Keine Person gefunden");
-                }
-            } else if (input.equals("f")) {
-                System.out.println("Filter Attribut:");
-                String f = scanner.nextLine();
-               // List<Person> foundPersons = rdf.filtern(f);
-                rdf.filtern(f);
-            /*    if (foundPersons != null) {
-                    System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
-                            "-----------------------------------------------------------------------------------------" );
-                    System.out.println(foundPersons.toString());
-                } else {
-                    System.out.println("Keine Person gefunden");
                 }*/
+            } else if (input.equals("f")) {
+                System.out.println("Gender g,   Adress a");
+                String filterIn = scanner.nextLine();
+                if(filterIn.equals("g")){
+                    System.out.println("Gender Filter Attribut:");
+                    String f = scanner.nextLine();
+                    List<Person> foundPersons = rdf.getPersonByGender(f);
+
+                    if (foundPersons != null) {
+                        System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
+                                "-----------------------------------------------------------------------------------------" );
+                        System.out.println(foundPersons.toString());
+                    } else {
+                        System.out.println("Keine Person gefunden");
+                    }
+                }else  if(filterIn.equals("a")) {
+                    System.out.println("Adress Filter Attribut:");
+                    String f = scanner.nextLine();
+                    List<Person> foundPersons = rdf.getPersonByGender(f);
+
+                    if (foundPersons != null) {
+                        System.out.println("ID   |" + "  Name:   |" + "  Adresse:   |" + "  Geburstag:   |" + "  Gender:   |" + "  Arbeitgeber:   |" + "\n" +
+                                "-----------------------------------------------------------------------------------------");
+                        System.out.println(foundPersons.toString());
+                    } else {
+                        System.out.println("Keine Person gefunden");
+                    }
+                }
             } else if (input.equals("s")) {
                 System.out.println("Search Person by id:");
                 int id = Integer.parseInt(scanner.nextLine());
-                Person foundPerson = rdf.getPerson(id);
+                Person foundPerson = rdf.getPersonByID(id);
 
                 if (foundPerson != null) {
                     System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
@@ -111,7 +126,7 @@ public class project1 {
             } else if (input.equals("p")) {
 
                 System.out.println("All Persons:");
-                List<Person> foundPersonsAll = rdf.getAllPerson();
+                List<Person> foundPersonsAll = rdf.getPersons();
 
                 if (foundPersonsAll != null) {
                     System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
@@ -121,14 +136,11 @@ public class project1 {
                     System.out.println("Keine Person gefunden");
                 }
 
-            }else if (input.equals("k")) {
+            }
 
-             //   rdf.addPerson();
-
-              rdf.printPerson();
 
             }
         }
 
 
-    }}
+    }
