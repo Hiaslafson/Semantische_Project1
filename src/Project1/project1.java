@@ -75,14 +75,8 @@ public class project1 {
 
 
             } else if (input.equals("d")) {
-              /*  System.out.println("Delete Person with id:");
-                int id = Integer.parseInt(scanner.nextLine());Person foundPerson = rdf.getPerson(id);
-                if (foundPerson != null) {
-                    rdf.deletePerson(id);
-                    System.out.println("Person gelöscht");
-                } else {
-                    System.out.println("Keine Person gefunden");
-                }*/
+
+                rdf.deletePerson();
             } else if (input.equals("f")) {
                 System.out.println("Gender g,   Adress a");
                 String filterIn = scanner.nextLine();

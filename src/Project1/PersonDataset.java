@@ -34,7 +34,8 @@ public class PersonDataset {
 
 		dataset = TDBFactory.assembleDataset(
 				PersonDataset.class.getResource("tdb-assembler.ttl").getPath());
-		 List<Person> persons = getPersons();
+
+		List<Person> persons = getPersons();
 		for(Person p : persons){
 			Id = p.getId();
 		}
@@ -48,23 +49,22 @@ public class PersonDataset {
 		Id = Id + 1;
 		dataset.begin(ReadWrite.WRITE); // START TRANSACTION
 		try {
-			UpdateRequest request = UpdateFactory.create("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-					"PREFIX person: <http://www.example/person/>\n" +
-					"PREFIX st:     <http://www.example/st.rdf#>\n" +
-					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n" +
-					"\n" +
-					"INSERT DATA { \n" +
-					"\tGRAPH st:defaultGraph {\n" +
-					"\tperson:p" + Id + " a st:Person;\n" +
-					"\t    vcard:UID \"" + Id + "\";\n" +
-					"\t    vcard:Name \"" + p.getName() + "\";\n" +
-					"\t    st:gender \"" + p.getGender() + "\";\n" +
-					"\t    vcard:ADR \"" + p.getAdress() + "\";\n" +
-					"\t    st:employer \"" + p.getEmployer() + "\";\n" +
-					"\t    st:birthday \"" + p.getDate() + "\";\n" +
-					"\t    .\n" +
-					"\t}\n" +
-					"}");
+			UpdateRequest request = UpdateFactory.create(
+					"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+					"PREFIX person: <http://www.example/person/>" +
+					"PREFIX st:     <http://www.example/st.rdf#>" +
+					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>" +
+					"INSERT DATA { " +
+					"GRAPH st:actualGraph {" +
+					"person:p" + Id + " a st:Person;" +
+					"    vcard:UID \"" + Id + "\";" +
+					"    vcard:Name \"" + p.getName() + "\";" +
+					"    st:gender \"" + p.getGender() + "\";" +
+					"    vcard:ADR \"" + p.getAdress() + "\";" +
+					"    st:employer \"" + "<http://www.example/person/p" + p.getEmployer() + ">\";" +
+					"    st:birthday \"" + p.getDate() + "\";" +
+					".}}"
+			);
 			UpdateAction.execute(request, dataset);
 			dataset.commit();
 		} catch (RuntimeException e) {
@@ -78,7 +78,7 @@ public class PersonDataset {
 	}
 
 
-	public static void deletePerson(int id) {
+	public static void deletePerson() {
 		//Person by ID
 		//get The Person
 		//Insert in deltetGraph
@@ -86,7 +86,12 @@ public class PersonDataset {
 		List<String> x = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("DELETE {?perrson : ?age_old}");
+			Query q = QueryFactory.create(  "DELETE {?v :1 }\n" +
+					"INSERT {?p :age ?age_new}\n" +
+					"WHERE " +
+					"  { ?p a :Person. " +
+					"    ?p :age ?age_old." +
+					"  }");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 				Model m = res.getResourceModel();
@@ -139,16 +144,22 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
-			//	ResultSetFormatter.out(System.out, res, q);
-				persons = extractPersonList(res);
+				if(res.hasNext()) {
+					//ResultSetFormatter.out(System.out, res, q);
+					persons = extractPersonList(res);
 
-				// ResultSetFormatter.out(System.out, res, q);
+					// ResultSetFormatter.out(System.out, res, q);
 
-				//System.out.println(f.getResource("UID"));
-
+					//System.out.println(f.getResource("UID"));
+				}else{
+					Person p = new Person();
+					p.setId(0);
+					persons.add(p);
+					return persons;
+				}
 
 			}
 		} finally {
@@ -162,7 +173,7 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 
@@ -198,7 +209,7 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 

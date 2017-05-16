@@ -67,7 +67,7 @@ public class Person {
     }
      public String toString(){
          return
-                ""+ getId() +"     |  "+    getName()  +"  |    "+ getAdress() +  "  |    " +getDate() + "   |   " + getGender() + "    |    "+ getEmployer()  + "\n"
+                ""+ getId() +"  |  "+    getName()  +"  |    "+ getAdress() +  "  |    " +getDate() + "   |   " + getGender() + "    |    "+ getEmployer()  + "\n"
                  +"-----------------------------------------------------------------------------------------"  +"\n";
      }
 }
