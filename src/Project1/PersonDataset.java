@@ -83,17 +83,18 @@ public class PersonDataset {
 		try {
 			UpdateRequest request = UpdateFactory.create("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
 					"PREFIX person: <http://www.example/person/>\n" +
-					"PREFIX semtech:     <http://www.example/semtech.rdf#>\n" +
+					"PREFIX st:     <http://www.example/st.rdf#>\n" +
 					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n" +
 					"\n" +
 					"INSERT DATA { \n" +
-					"\tGRAPH semtech:defaultGraph {\n" +
-					"\tperson:p" + Id + " a semtech:Person;\n" +
+					"\tGRAPH st:defaultGraph {\n" +
+					"\tperson:p" + Id + " a st:Person;\n" +
 					"\t    vcard:UID \"" + Id + "\";\n" +
 					"\t    vcard:Name \"" + p.getName() + "\";\n" +
-					"\t    semtech:gender \"" + p.getGender() + "\";\n" +
+					"\t    st:gender \"" + p.getGender() + "\";\n" +
 					"\t    vcard:ADR \"" + p.getAdress() + "\";\n" +
-					"\t    semtech:employer \"" + p.getEmployer() + "\";\n" +
+					"\t    st:employer \"" + p.getEmployer() + "\";\n" +
+					"\t    st:birthday \"" + p.getDate() + "\";\n" +
 					"\t    .\n" +
 					"\t}\n" +
 					"}");
@@ -192,15 +193,17 @@ public class PersonDataset {
 
 	} */
 
-	public static void printPerson() {
+	public static List<Person> getPerson() {
+		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
 			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
-				Model m = res.getResourceModel();
 
-				ResultSetFormatter.out(System.out, res, q);
+				persons = extractPersonList(res);
+
+				//ResultSetFormatter.out(System.out, res, q);
 
 				//System.out.println(f.getResource("UID"));
 
@@ -209,16 +212,18 @@ public class PersonDataset {
 		} finally {
 			dataset.end();
 		}
+		return persons;
 	}
 
 	public static void filtern(String filter) {
+
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v. FILTER regex(?o, \"" + filter  + "\", \"i\")} UNION {GRAPH ?g {?person ?o ?v" +
+			Query q = QueryFactory.create("SELECT ?person ?o ?v ?g WHERE {{?person ?o ?v. FILTER regex(?v,\"" + filter  + "\", \"i\")} UNION {GRAPH ?g {?person ?o ?v" +
 					"}}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
-				Model m = res.getResourceModel();
+
 
 				ResultSetFormatter.out(System.out, res, q);
 			}
@@ -279,12 +284,48 @@ public class PersonDataset {
 	}
 
 
-public static void syncModel(){
-	dataset.begin(ReadWrite.WRITE);
-	dataset.addNamedModel("person", getPersonModel());
-	dataset.end();
-	dataset.close();
-}
+	public static List<Person> extractPersonList(ResultSet r){
+		List<Person> persons =  new ArrayList<>();
+		Person p = new Person();
+		QuerySolution qs = r.nextSolution();
+		String s = qs.get("person").toString();
+		while(r.hasNext()){
+		 qs = r.nextSolution();
+
+			if(s != qs.get("person").toString()){
+				persons.add(p);
+				p = new Person();
+			}
+
+			s = qs.get("person").toString();
+			System.out.println(s);
+			System.out.println(qs.get("v").toString());
+
+			switch (qs.get("o").toString()){
+				case "http://www.w3.org/2001/vcard-rdf/3.0#UID":
+					p.setId(Integer.parseInt(qs.get("v").toString()));
+				case "http://www.w3.org/2001/vcard-rdf/3.0#Name":
+					p.setName(qs.get("v").toString());
+				case "http://www.example/st.rdf#gender":
+					p.setGender(qs.get("v").toString());
+				case "http://www.w3.org/2001/vcard-rdf/3.0#ADR":
+					p.setAdress(qs.get("v").toString());
+				case "http://www.example/st.rdf#employer":
+					p.setEmployer(qs.get("v").toString());
+				case "http://www.example/st.rdf#birthday":
+					p.setDate(qs.get("v").toString());
+			}
+
+		}
+
+
+		persons.add(p);
+		return persons;
+
+
+	}
+
+
 
 
 
