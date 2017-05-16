@@ -3,10 +3,10 @@
      @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
      @prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
 
+
      [] ja:loadClass "org.apache.jena.tdb.TDB" .
      tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
      tdb:GraphTDB    rdfs:subClassOf  ja:Model      .
-
 
      <#dataset> rdf:type         tdb:DatasetTDB ;
          tdb:location "C:/Users/MatthiasW/Documents/Semantische_Project1/src/Project1/tdb" ;  # Change to a location on your file system!!!

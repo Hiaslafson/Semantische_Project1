@@ -28,19 +28,25 @@ public class PersonDataset {
 
 	private static int Id = 0;
 
-
 	public PersonDataset() {
-
-
-		dataset = TDBFactory.assembleDataset(
+	int idAc = 0;
+	int idDel = 0;
+	dataset = TDBFactory.assembleDataset(
 				PersonDataset.class.getResource("tdb-assembler.ttl").getPath());
 
 		List<Person> persons = getPersons();
 		for(Person p : persons){
-			Id = p.getId();
+			idAc = p.getId();
 		}
-
-
+		persons = getDelPersons();
+		for(Person p : persons){
+			idDel = p.getId();
+		}
+		if(idAc > idDel){
+			Id = idAc;
+		}else{
+			Id = idDel;
+		}
 
 	}
 
@@ -78,30 +84,30 @@ public class PersonDataset {
 	}
 
 
-	public static void deletePerson() {
-		//Person by ID
-		//get The Person
-		//Insert in deltetGraph
-		//delete Person
-		List<String> x = new ArrayList<>();
-		dataset.begin(ReadWrite.READ);
+	public static void deletePerson(int id) {
+		dataset.begin(ReadWrite.WRITE); // START TRANSACTION
 		try {
-			Query q = QueryFactory.create(  "DELETE {?v :1 }\n" +
-					"INSERT {?p :age ?age_new}\n" +
-					"WHERE " +
-					"  { ?p a :Person. " +
-					"    ?p :age ?age_old." +
-					"  }");
-			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
-				ResultSet res = qEx.execSelect();
-				Model m = res.getResourceModel();
+			UpdateRequest request = UpdateFactory.create(
+					"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+							"PREFIX person: <http://www.example/person/>" +
+							"PREFIX st:     <http://www.example/st.rdf#>" +
+							"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>" +
+							"DELETE {" +
+							"GRAPH st:actualGraph { person:p"+id+" ?v ?o. }}" +
+							"INSERT{" +
+							"GRAPH st:deleteGraph {person:p"+id+ "?v ?o.}}" +
+							"WHERE{ GRAPH st:actualGraph {person:p"+id+ "?v ?o.}}"
 
-				ResultSetFormatter.out(System.out, res, q);
-				ResultSetFormatter.toList(res);
 
-			}
+
+			);
+			UpdateAction.execute(request, dataset);
+			dataset.commit();
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+			dataset.abort(); //
 		} finally {
-			dataset.end();
+			dataset.end(); // END TRANSACTION (ABORT IF NO COMMIT)
 		}
 
 	}
@@ -111,22 +117,19 @@ public class PersonDataset {
 		dataset.begin(ReadWrite.WRITE); // START TRANSACTION
 		try {
 			UpdateRequest request = UpdateFactory.create("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-					"PREFIX person: <http://www.example/person/>\n" +
-					"PREFIX st:     <http://www.example/st.rdf#>\n" +
-					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n" +
-					"\n" +
-					"INSERT DATA { \n" +
-					"\tGRAPH st:defaultGraph {\n" +
-					"\tperson:p" + p.getId() + " a st:Person;\n" +
-					"\t    vcard:UID \"" + p.getId() + "\";\n" +
-					"\t    vcard:Name \"" + p.getName() + "\";\n" +
-					"\t    st:gender \"" + p.getGender() + "\";\n" +
-					"\t    vcard:ADR \"" + p.getAdress() + "\";\n" +
-					"\t    st:employer \"" + p.getEmployer() + "\";\n" +
-					"\t    st:birthday \"" + p.getDate() + "\";\n" +
-					"\t    .\n" +
-					"\t}\n" +
-					"}");
+					"PREFIX person: <http://www.example/person/>" +
+					"PREFIX st:     <http://www.example/st.rdf#>" +
+					"PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>" +
+					"INSERT DATA { " +
+					"GRAPH st:defaultGraph {\n" +
+					"person:p" + p.getId() + " a st:Person;" +
+					"    vcard:UID \"" + p.getId() + "\";" +
+					"    vcard:Name \"" + p.getName() + "\";" +
+					"    st:gender \"" + p.getGender() + "\";" +
+					"    vcard:ADR \"" + p.getAdress() + "\";" +
+					"    st:employer \"" + p.getEmployer() + "\";" +
+					"    st:birthday \"" + p.getDate() + "\";" +
+					"   .}}");
 			UpdateAction.execute(request, dataset);
 			dataset.commit();
 		} catch (RuntimeException e) {
@@ -144,7 +147,35 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("SELECT ?person ?v ?o ?g WHERE {GRAPH <http://www.example/st.rdf#actualGraph> {?person ?o ?v}}");
+			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
+				ResultSet res = qEx.execSelect();
+				if(res.hasNext()) {
+					//ResultSetFormatter.out(System.out, res, q);
+					persons = extractPersonList(res);
+
+					// ResultSetFormatter.out(System.out, res, q);
+
+					//System.out.println(f.getResource("UID"));
+				}else{
+					Person p = new Person();
+					p.setId(0);
+					persons.add(p);
+					return persons;
+				}
+
+			}
+		} finally {
+			dataset.end();
+		}
+		return persons;
+	}
+
+	public static List<Person> getDelPersons() {
+		List<Person> persons = new ArrayList<>();
+		dataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create("SELECT ?person ?v ?o ?g WHERE {GRAPH <http://www.example/st.rdf#deleteGraph> {?person ?o ?v}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 				if(res.hasNext()) {
@@ -173,7 +204,8 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("PREFIX person: <http://www.example/person/>" +
+					"SELECT ?person ?v ?o ?g WHERE {GRAPH <http://www.example/st.rdf#actualGraph> {person:p1 ?o ?v}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 
@@ -209,7 +241,7 @@ public class PersonDataset {
 		List<Person> persons = new ArrayList<>();
 		dataset.begin(ReadWrite.READ);
 		try {
-			Query q = QueryFactory.create("SELECT * WHERE {{?person ?o ?v} UNION {GRAPH ?g {?person ?o ?v}}}");
+			Query q = QueryFactory.create("SELECT ?person ?v ?o ?g WHERE {GRAPH <http://www.example/st.rdf#actualGraph> {?person ?o ?v}}");
 			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
 				ResultSet res = qEx.execSelect();
 
@@ -221,6 +253,30 @@ public class PersonDataset {
 		}
 		for (Person p : persons) {
 			if (p.getGender().equals(gender)) {
+				persGender.add(p);
+			}
+
+		}
+		return persGender;
+	}
+
+	public static List<Person> getPersonByAdr(String adr) {
+		List<Person> persGender = new ArrayList<>();
+		List<Person> persons = new ArrayList<>();
+		dataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create("SELECT ?person ?v ?o ?g WHERE {GRAPH <http://www.example/st.rdf#actualGraph> {?person ?o ?v}}");
+			try (QueryExecution qEx = QueryExecutionFactory.create(q, dataset)) {
+				ResultSet res = qEx.execSelect();
+
+				persons = extractPersonList(res);
+
+			}
+		} finally {
+			dataset.end();
+		}
+		for (Person p : persons) {
+			if (p.getAdress().equals(adr)) {
 				persGender.add(p);
 			}
 

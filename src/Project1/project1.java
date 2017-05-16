@@ -17,7 +17,7 @@ public class project1 {
         PersonDataset rdf = new PersonDataset();
 
         while (true) {
-            System.out.println("p: print all Person -  i: Insert Person  -   u: Update Person -  d: Delete Person   -  f: Filter Person   -  s:Search Person");
+            System.out.println("p: print all Person -  i: Insert Person  -   u: Update Person -  d: Delete Person   -  f: Filter Person   -  s:Search Person    -   x:ShowDeleteGraph");
             String input = scanner.nextLine();
             if (input.equals("i")) {
                 Person p = new Person();
@@ -75,10 +75,11 @@ public class project1 {
 
 
             } else if (input.equals("d")) {
-
-                rdf.deletePerson();
+                System.out.println("Insert ID for Person to delete");
+                String filterIn = scanner.nextLine();
+                rdf.deletePerson(Integer.parseInt(filterIn));
             } else if (input.equals("f")) {
-                System.out.println("Gender g,   Adress a");
+                System.out.println("g:Gender    -   a:Adress");
                 String filterIn = scanner.nextLine();
                 if(filterIn.equals("g")){
                     System.out.println("Gender Filter Attribut:");
@@ -95,7 +96,7 @@ public class project1 {
                 }else  if(filterIn.equals("a")) {
                     System.out.println("Adress Filter Attribut:");
                     String f = scanner.nextLine();
-                    List<Person> foundPersons = rdf.getPersonByGender(f);
+                    List<Person> foundPersons = rdf.getPersonByAdr(f);
 
                     if (foundPersons != null) {
                         System.out.println("ID   |" + "  Name:   |" + "  Adresse:   |" + "  Geburstag:   |" + "  Gender:   |" + "  Arbeitgeber:   |" + "\n" +
@@ -121,6 +122,19 @@ public class project1 {
 
                 System.out.println("All Persons:");
                 List<Person> foundPersonsAll = rdf.getPersons();
+
+                if (foundPersonsAll != null) {
+                    System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
+                            "-----------------------------------------------------------------------------------------" );;
+                    System.out.println(foundPersonsAll.toString());
+                } else {
+                    System.out.println("Keine Person gefunden");
+                }
+
+            } else if (input.equals("x")) {
+
+                System.out.println("All Persons:");
+                List<Person> foundPersonsAll = rdf.getDelPersons();
 
                 if (foundPersonsAll != null) {
                     System.out.println("ID   |" + "  Name:   |"  +   "  Adresse:   |"  + "  Geburstag:   |"    +  "  Gender:   |"  + "  Arbeitgeber:   |" + "\n"+
