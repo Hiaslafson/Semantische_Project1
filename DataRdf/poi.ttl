@@ -1,0 +1,1185 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+<http://example.org/poi/1.0> a rdf:poi ;
+	rdf:id "1.0" ;
+	rdf:lat "48.2643600" ;
+	rdf:long "7.7205300" ;
+	rdf:postcode "DE-77977" ;
+	rdf:name "Europa Park Rust  Rust" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/2.0> a rdf:poi ;
+	rdf:id "2.0" ;
+	rdf:lat "52.3893400" ;
+	rdf:long "13.1212000" ;
+	rdf:postcode "DE-14480" ;
+	rdf:name "Filmpark Babelsberg  Potsdam" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/3.0> a rdf:poi ;
+	rdf:id "3.0" ;
+	rdf:lat "49.6568700" ;
+	rdf:long "11.4602300" ;
+	rdf:postcode "DE-91287" ;
+	rdf:name "Fränkisches Wunderland  Plech" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/4.0> a rdf:poi ;
+	rdf:id "4.0" ;
+	rdf:lat "48.0672400" ;
+	rdf:long "11.5486100" ;
+	rdf:postcode "DE-82031" ;
+	rdf:name "Bavaria Filmstadt  München" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/5.0> a rdf:poi ;
+	rdf:id "5.0" ;
+	rdf:lat "48.5313400" ;
+	rdf:long "12.6343600" ;
+	rdf:postcode "DE-94419" ;
+	rdf:name "Bayern-Park" ;
+	rdf:count "1.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/6.0> a rdf:poi ;
+	rdf:id "6.0" ;
+	rdf:lat "49.7770000" ;
+	rdf:long "10.4612100" ;
+	rdf:postcode "DE-96160" ;
+	rdf:name "Freizeit-Land  Geiselwind" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/7.0> a rdf:poi ;
+	rdf:id "7.0" ;
+	rdf:lat "50.5651400" ;
+	rdf:long "12.3950900" ;
+	rdf:postcode "DE-08485" ;
+	rdf:name "Freizeitpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/8.0> a rdf:poi ;
+	rdf:id "8.0" ;
+	rdf:lat "51.6304300" ;
+	rdf:long "6.9400300" ;
+	rdf:postcode "DE-46244" ;
+	rdf:name "Movie Park Germany" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/9.0> a rdf:poi ;
+	rdf:id "9.0" ;
+	rdf:lat "51.1195400" ;
+	rdf:long "11.5684900" ;
+	rdf:postcode "DE-06648" ;
+	rdf:name "Freizeitspaß Eckartsberga  Herrengosserstedt" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/10.0> a rdf:poi ;
+	rdf:id "10.0" ;
+	rdf:lat "54.0746800" ;
+	rdf:long "10.7763300" ;
+	rdf:postcode "DE-23683" ;
+	rdf:name "Hansa-Park  Sierksdorf" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/11.0> a rdf:poi ;
+	rdf:id "11.0" ;
+	rdf:lat "51.4922700" ;
+	rdf:long "6.8794900" ;
+	rdf:postcode "DE-46047" ;
+	rdf:name "Centro Park  Oberhausen" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/12.0> a rdf:poi ;
+	rdf:id "12.0" ;
+	rdf:lat "52.4423200" ;
+	rdf:long "9.2007000" ;
+	rdf:postcode "DE-31547" ;
+	rdf:name "Dino-Park  Münchehagen" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/13.0> a rdf:poi ;
+	rdf:id "13.0" ;
+	rdf:lat "49.6881500" ;
+	rdf:long "11.0019900" ;
+	rdf:postcode "DE-91336" ;
+	rdf:name "Erlebnispark Schloß Thurn  Heroldsbach" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/14.0> a rdf:poi ;
+	rdf:id "14.0" ;
+	rdf:lat "50.2962600" ;
+	rdf:long "9.4868500" ;
+	rdf:postcode "DE-36396" ;
+	rdf:name "Erlebnispark Steinau a.d.Straße  Steinau" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/15.0> a rdf:poi ;
+	rdf:id "15.0" ;
+	rdf:lat "52.4750000" ;
+	rdf:long "10.2273900" ;
+	rdf:postcode "DE-29356" ;
+	rdf:name "Erse-Park  Uetze" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/16.0> a rdf:poi ;
+	rdf:id "16.0" ;
+	rdf:lat "49.3185800" ;
+	rdf:long "8.3032400" ;
+	rdf:postcode "DE-67374" ;
+	rdf:name "Holiday-Park  Haßloch" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/17.0> a rdf:poi ;
+	rdf:id "17.0" ;
+	rdf:lat "48.4270100" ;
+	rdf:long "10.3006400" ;
+	rdf:postcode "DE-89359" ;
+	rdf:name "Legoland  Günzburg" ;
+	rdf:count "1.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/18.0> a rdf:poi ;
+	rdf:id "18.0" ;
+	rdf:lat "51.0702600" ;
+	rdf:long "8.1734200" ;
+	rdf:postcode "DE-57399" ;
+	rdf:name "Panoramapark  Kirchhundem" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/19.0> a rdf:poi ;
+	rdf:id "19.0" ;
+	rdf:lat "50.7999200" ;
+	rdf:long "6.8788500" ;
+	rdf:postcode "DE-50321" ;
+	rdf:name "Phantasialand" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/20.0> a rdf:poi ;
+	rdf:id "20.0" ;
+	rdf:lat "49.4308400" ;
+	rdf:long "10.9398100" ;
+	rdf:postcode "DE-90513" ;
+	rdf:name "Playmobil Funpark  Zirndorf" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/21.0> a rdf:poi ;
+	rdf:id "21.0" ;
+	rdf:lat "52.2637600" ;
+	rdf:long "8.8445400" ;
+	rdf:postcode "DE-32429" ;
+	rdf:name "Potts Park" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/22.0> a rdf:poi ;
+	rdf:id "22.0" ;
+	rdf:lat "52.0942900" ;
+	rdf:long "9.6539700" ;
+	rdf:postcode "DE-31020" ;
+	rdf:name "Rasti-Land  Salzhemmendorf" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/23.0> a rdf:poi ;
+	rdf:id "23.0" ;
+	rdf:lat "48.9027600" ;
+	rdf:long "9.6545600" ;
+	rdf:postcode "DE-73667" ;
+	rdf:name "Schwaben Park  Gmeinweiler" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/24.0> a rdf:poi ;
+	rdf:id "24.0" ;
+	rdf:lat "47.7651200" ;
+	rdf:long "12.4406800" ;
+	rdf:postcode "DE-83250" ;
+	rdf:name "Märchen-Erlebnispark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/25.0> a rdf:poi ;
+	rdf:id "25.0" ;
+	rdf:lat "47.7405900" ;
+	rdf:long "12.6122800" ;
+	rdf:postcode "DE-83324" ;
+	rdf:name "Freizeitpark Ruhpolding" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/26.0> a rdf:poi ;
+	rdf:id "26.0" ;
+	rdf:lat "54.5790900" ;
+	rdf:long "9.6344900" ;
+	rdf:postcode "DE-24894" ;
+	rdf:name "Tolk-Schau" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/27.0> a rdf:poi ;
+	rdf:id "27.0" ;
+	rdf:lat "48.7110500" ;
+	rdf:long "8.2475700" ;
+	rdf:postcode "DE-76534" ;
+	rdf:name "Geroldsauer Wasserfälle  Baden-Baden - Malschbach" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/28.0> a rdf:poi ;
+	rdf:id "28.0" ;
+	rdf:lat "49.9649000" ;
+	rdf:long "6.6220000" ;
+	rdf:postcode "DE-54647" ;
+	rdf:name "Eifelpark Gondorf" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/29.0> a rdf:poi ;
+	rdf:id "29.0" ;
+	rdf:lat "51.8895400" ;
+	rdf:long "8.6816500" ;
+	rdf:postcode "DE-33758" ;
+	rdf:name "Safaripark 05207/952425" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/30.0> a rdf:poi ;
+	rdf:id "30.0" ;
+	rdf:lat "48.0432400" ;
+	rdf:long "10.5905900" ;
+	rdf:postcode "DE-86825" ;
+	rdf:name "Allgäu Skyline Park" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/31.0> a rdf:poi ;
+	rdf:id "31.0" ;
+	rdf:lat "49.1697700" ;
+	rdf:long "12.6379900" ;
+	rdf:postcode "DE-93455" ;
+	rdf:name "Churpfalzpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/32.0> a rdf:poi ;
+	rdf:id "32.0" ;
+	rdf:lat "50.9241500" ;
+	rdf:long "6.3480500" ;
+	rdf:postcode "DE-52428" ;
+	rdf:name "Brückenkopf-Park" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/33.0> a rdf:poi ;
+	rdf:id "33.0" ;
+	rdf:lat "53.5438400" ;
+	rdf:long "9.9891400" ;
+	rdf:postcode "DE-20457" ;
+	rdf:name "Miniaturwunderland" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/34.0> a rdf:poi ;
+	rdf:id "34.0" ;
+	rdf:lat "52.7514600" ;
+	rdf:long "9.6173600" ;
+	rdf:postcode "DE-29693" ;
+	rdf:name "Serengeti Park" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/35.0> a rdf:poi ;
+	rdf:id "35.0" ;
+	rdf:lat "47.7102900" ;
+	rdf:long "9.5950700" ;
+	rdf:postcode "DE-88074" ;
+	rdf:name "Ravensburger Spieleland  Meckenbeuren" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/36.0> a rdf:poi ;
+	rdf:id "36.0" ;
+	rdf:lat "49.0876700" ;
+	rdf:long "7.7267400" ;
+	rdf:postcode "DE-66996" ;
+	rdf:name "Biosphärenhaus  Fischbach bei Dahn" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/37.0> a rdf:poi ;
+	rdf:id "37.0" ;
+	rdf:lat "47.0837000" ;
+	rdf:long "14.4128400" ;
+	rdf:postcode "AT-A-8812" ;
+	rdf:name "VIVARIUM" ;
+	rdf:count "2.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/38.0> a rdf:poi ;
+	rdf:id "38.0" ;
+	rdf:lat "51.1540200" ;
+	rdf:long "8.0393500" ;
+	rdf:postcode "DE-57368" ;
+	rdf:name "Elspe Festival  Lennestadt" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/39.0> a rdf:poi ;
+	rdf:id "39.0" ;
+	rdf:lat "49.8908000" ;
+	rdf:long "8.6972700" ;
+	rdf:postcode "DE-64287" ;
+	rdf:name "Tretboot-Minigolf-Spielwiese" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/40.0> a rdf:poi ;
+	rdf:id "40.0" ;
+	rdf:lat "48.3902300" ;
+	rdf:long "11.0654100" ;
+	rdf:postcode "DE-86453" ;
+	rdf:name "Jimmys Funpark  Dasing" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/41.0> a rdf:poi ;
+	rdf:id "41.0" ;
+	rdf:lat "49.0720100" ;
+	rdf:long "8.1927300" ;
+	rdf:postcode "DE-76870" ;
+	rdf:name "Fun Forest Abenteuerpark Klettern durch Bäume Badeallee Tel. 00497275618032  Kandel" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/42.0> a rdf:poi ;
+	rdf:id "42.0" ;
+	rdf:lat "51.1379700" ;
+	rdf:long "12.1417300" ;
+	rdf:postcode "DE-06679" ;
+	rdf:name "Mondsee  Großgrimma - Grunau" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/43.0> a rdf:poi ;
+	rdf:id "43.0" ;
+	rdf:lat "49.1360800" ;
+	rdf:long "7.9326000" ;
+	rdf:postcode "DE-76857" ;
+	rdf:name "Wild Wanderpark  SILZ" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/44.0> a rdf:poi ;
+	rdf:id "44.0" ;
+	rdf:lat "54.4224800" ;
+	rdf:long "13.4447400" ;
+	rdf:postcode "DE-18528" ;
+	rdf:name "Inselrodelbahn" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/45.0> a rdf:poi ;
+	rdf:id "45.0" ;
+	rdf:lat "49.4466000" ;
+	rdf:long "7.7538200" ;
+	rdf:postcode "DE-67657" ;
+	rdf:name "Gartenschau - Eingang Alter Schlachthof  Kaiserslautern" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/46.0> a rdf:poi ;
+	rdf:id "46.0" ;
+	rdf:lat "49.4511300" ;
+	rdf:long "7.7554200" ;
+	rdf:postcode "DE-67657" ;
+	rdf:name "Gartenschau - Eingang Kaiserberg  Kaiserslautern" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/47.0> a rdf:poi ;
+	rdf:id "47.0" ;
+	rdf:lat "54.1287200" ;
+	rdf:long "8.8703300" ;
+	rdf:postcode "DE-25761" ;
+	rdf:name "Blanker Hans Sturmflutenwelt  Büsum" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/48.0> a rdf:poi ;
+	rdf:id "48.0" ;
+	rdf:lat "49.2974900" ;
+	rdf:long "11.1312400" ;
+	rdf:postcode "DE-90596" ;
+	rdf:name "Franken Megaplay" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/49.0> a rdf:poi ;
+	rdf:id "49.0" ;
+	rdf:lat "53.6433800" ;
+	rdf:long "8.0781900" ;
+	rdf:postcode "DE-26388" ;
+	rdf:name "Bullermeck Hooksiel  Wilhelmshaven - Bohnenburger" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/50.0> a rdf:poi ;
+	rdf:id "50.0" ;
+	rdf:lat "53.5068400" ;
+	rdf:long "11.0956800" ;
+	rdf:postcode "DE-19243" ;
+	rdf:name "Snow Funpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/51.0> a rdf:poi ;
+	rdf:id "51.0" ;
+	rdf:lat "53.0221800" ;
+	rdf:long "9.8726800" ;
+	rdf:postcode "DE-29614" ;
+	rdf:name "Heide-Park  Soltau" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/52.0> a rdf:poi ;
+	rdf:id "52.0" ;
+	rdf:lat "51.6145100" ;
+	rdf:long "6.9765500" ;
+	rdf:postcode "DE-46244" ;
+	rdf:name "Freizeitpark Schloß Beck  Bottrop" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/53.0> a rdf:poi ;
+	rdf:id "53.0" ;
+	rdf:lat "53.3509600" ;
+	rdf:long "8.6403400" ;
+	rdf:postcode "DE-27628" ;
+	rdf:name "Piratenburg Indoor Spielplatz  Hagen" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/54.0> a rdf:poi ;
+	rdf:id "54.0" ;
+	rdf:lat "53.5084900" ;
+	rdf:long "8.5955700" ;
+	rdf:postcode "DE-27572" ;
+	rdf:name "Krabbenland Indoor Spielewelt  Bremerhaven" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/55.0> a rdf:poi ;
+	rdf:id "55.0" ;
+	rdf:lat "51.3089400" ;
+	rdf:long "8.4371700" ;
+	rdf:postcode "DE-59909" ;
+	rdf:name "Fort Fun Abenteuerland 0290/81123  Bestwig" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/56.0> a rdf:poi ;
+	rdf:id "56.0" ;
+	rdf:lat "51.2621100" ;
+	rdf:long "11.4205800" ;
+	rdf:postcode "DE-06571" ;
+	rdf:name "Mowi-World Modellbahnspass  Wiehe" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/57.0> a rdf:poi ;
+	rdf:id "57.0" ;
+	rdf:lat "52.7952500" ;
+	rdf:long "7.2015100" ;
+	rdf:postcode "DE-49733" ;
+	rdf:name "Ferienzentrum Schloss Dankern  Haren" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/58.0> a rdf:poi ;
+	rdf:id "58.0" ;
+	rdf:lat "50.3360300" ;
+	rdf:long "6.9488100" ;
+	rdf:postcode "DE-53520" ;
+	rdf:name "nuerburgring" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/59.0> a rdf:poi ;
+	rdf:id "59.0" ;
+	rdf:lat "50.9184400" ;
+	rdf:long "12.9835000" ;
+	rdf:postcode "DE-09244" ;
+	rdf:name "Sonnenlandpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/60.0> a rdf:poi ;
+	rdf:id "60.0" ;
+	rdf:lat "48.6952800" ;
+	rdf:long "13.2650000" ;
+	rdf:postcode "DE-94535" ;
+	rdf:name "Pullman City Westernstadt  Eging am See" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/61.0> a rdf:poi ;
+	rdf:id "61.0" ;
+	rdf:lat "51.0520700" ;
+	rdf:long "10.4585300" ;
+	rdf:postcode "DE-99947" ;
+	rdf:name "R_WEG Kreuzung v.HUETSCHE" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/62.0> a rdf:poi ;
+	rdf:id "62.0" ;
+	rdf:lat "47.8935200" ;
+	rdf:long "13.2200900" ;
+	rdf:postcode "AT-5302" ;
+	rdf:name "Gut Aiderbichl" ;
+	rdf:count "3.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/63.0> a rdf:poi ;
+	rdf:id "63.0" ;
+	rdf:lat "51.3570400" ;
+	rdf:long "12.3472000" ;
+	rdf:postcode "DE-04157" ;
+	rdf:name "W-Aussichtsturm Leipzig" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/64.0> a rdf:poi ;
+	rdf:id "64.0" ;
+	rdf:lat "51.2516800" ;
+	rdf:long "12.3152600" ;
+	rdf:postcode "DE-04249" ;
+	rdf:name "BELANTIS" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/65.0> a rdf:poi ;
+	rdf:id "65.0" ;
+	rdf:lat "48.2174800" ;
+	rdf:long "16.4003100" ;
+	rdf:postcode "AT-1020" ;
+	rdf:name "Volksprater" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/66.0> a rdf:poi ;
+	rdf:id "66.0" ;
+	rdf:lat "48.2138700" ;
+	rdf:long "16.4021200" ;
+	rdf:postcode "AT-1020" ;
+	rdf:name "Volksprater" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/67.0> a rdf:poi ;
+	rdf:id "67.0" ;
+	rdf:lat "48.2148300" ;
+	rdf:long "16.4042600" ;
+	rdf:postcode "AT-1020" ;
+	rdf:name "Volksprater" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/68.0> a rdf:poi ;
+	rdf:id "68.0" ;
+	rdf:lat "48.2162500" ;
+	rdf:long "16.4030200" ;
+	rdf:postcode "AT-1020" ;
+	rdf:name "Volksprater" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/69.0> a rdf:poi ;
+	rdf:id "69.0" ;
+	rdf:lat "48.2177500" ;
+	rdf:long "16.3961400" ;
+	rdf:postcode "AT-1020" ;
+	rdf:name "Volksprater" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/70.0> a rdf:poi ;
+	rdf:id "70.0" ;
+	rdf:lat "51.6532600" ;
+	rdf:long "5.0550500" ;
+	rdf:postcode "NL-5171 KW" ;
+	rdf:name "Efteling Theme Part Resort" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/71.0> a rdf:poi ;
+	rdf:id "71.0" ;
+	rdf:lat "48.4410500" ;
+	rdf:long "11.4160400" ;
+	rdf:postcode "DE-85305" ;
+	rdf:name "Waldkletterpark Oberbayern" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/72.0> a rdf:poi ;
+	rdf:id "72.0" ;
+	rdf:lat "47.3658100" ;
+	rdf:long "12.5097700" ;
+	rdf:postcode "AT-5754" ;
+	rdf:name "Hochseilpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/73.0> a rdf:poi ;
+	rdf:id "73.0" ;
+	rdf:lat "50.1590300" ;
+	rdf:long "7.1647800" ;
+	rdf:postcode "DE-56818" ;
+	rdf:name "Wild- und Freizeitpark Gbr Hennes  Cochem/Klotten" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/74.0> a rdf:poi ;
+	rdf:id "74.0" ;
+	rdf:lat "50.1161600" ;
+	rdf:long "8.1105700" ;
+	rdf:postcode "DE-65388" ;
+	rdf:name "Taunus Wunderland" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/75.0> a rdf:poi ;
+	rdf:id "75.0" ;
+	rdf:lat "47.8995300" ;
+	rdf:long "7.9220100" ;
+	rdf:postcode "DE-79254" ;
+	rdf:name "Steinwasenpark Steinwasenpark  Oberried" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/76.0> a rdf:poi ;
+	rdf:id "76.0" ;
+	rdf:lat "51.7036400" ;
+	rdf:long "10.8711700" ;
+	rdf:postcode "DE-38899" ;
+	rdf:name "Westernstadt Pullmann City 2" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/77.0> a rdf:poi ;
+	rdf:id "77.0" ;
+	rdf:lat "52.9568600" ;
+	rdf:long "7.9196200" ;
+	rdf:postcode "DE-26169" ;
+	rdf:name "Tier- und Freizeitpark Thüle" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/78.0> a rdf:poi ;
+	rdf:id "78.0" ;
+	rdf:lat "52.0404800" ;
+	rdf:long "13.7474400" ;
+	rdf:postcode "DE-15910" ;
+	rdf:name "Tropical Islands" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/79.0> a rdf:poi ;
+	rdf:id "79.0" ;
+	rdf:lat "52.5095100" ;
+	rdf:long "13.3726700" ;
+	rdf:postcode "DE-10785" ;
+	rdf:name "Legoland Discovery Centre Berlin" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/80.0> a rdf:poi ;
+	rdf:id "80.0" ;
+	rdf:lat "51.2954700" ;
+	rdf:long "15.0174100" ;
+	rdf:postcode "DE-02829" ;
+	rdf:name "Kulturinsel Einsiedel" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/81.0> a rdf:poi ;
+	rdf:id "81.0" ;
+	rdf:lat "47.8020800" ;
+	rdf:long "16.6463700" ;
+	rdf:postcode "AT-A-7062" ;
+	rdf:name "Familypark Neusiedlersee" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/82.0> a rdf:poi ;
+	rdf:id "82.0" ;
+	rdf:lat "47.9856400" ;
+	rdf:long "13.2736500" ;
+	rdf:postcode "AT-A-5204" ;
+	rdf:name "Fantasiana Erlebnispark Straßwalchen" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/83.0> a rdf:poi ;
+	rdf:id "83.0" ;
+	rdf:lat "47.6138000" ;
+	rdf:long "9.0563800" ;
+	rdf:postcode "CH-CH-8564" ;
+	rdf:name "Conny-Land" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/84.0> a rdf:poi ;
+	rdf:id "84.0" ;
+	rdf:lat "51.3951300" ;
+	rdf:long "5.9866900" ;
+	rdf:postcode "NL-5975 MZ" ;
+	rdf:name "Toverland Freizeitpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/85.0> a rdf:poi ;
+	rdf:id "85.0" ;
+	rdf:lat "52.4348600" ;
+	rdf:long "5.7608100" ;
+	rdf:postcode "NL-8256 RJ" ;
+	rdf:name "Walibi Freizeitpark" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/86.0> a rdf:poi ;
+	rdf:id "86.0" ;
+	rdf:lat "51.0817800" ;
+	rdf:long "2.6017600" ;
+	rdf:postcode "BE-8660" ;
+	rdf:name "plopsaland adinkerke" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/87.0> a rdf:poi ;
+	rdf:id "87.0" ;
+	rdf:lat "48.2183500" ;
+	rdf:long "16.3305200" ;
+	rdf:postcode "AT-1170" ;
+	rdf:name "556" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/88.0> a rdf:poi ;
+	rdf:id "88.0" ;
+	rdf:lat "48.2656900" ;
+	rdf:long "14.2890300" ;
+	rdf:postcode "AT-4060" ;
+	rdf:name "Leonding" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/89.0> a rdf:poi ;
+	rdf:id "89.0" ;
+	rdf:lat "56.4187800" ;
+	rdf:long "10.5577200" ;
+	rdf:postcode "DK-8581" ;
+	rdf:name "Djurs Sommerland" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/90.0> a rdf:poi ;
+	rdf:id "90.0" ;
+	rdf:lat "57.2688300" ;
+	rdf:long "9.6491000" ;
+	rdf:postcode "DK-9492" ;
+	rdf:name "Färup Summerland & Aquapark  Blokhus" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/91.0> a rdf:poi ;
+	rdf:id "91.0" ;
+	rdf:lat "55.7371700" ;
+	rdf:long "9.1194900" ;
+	rdf:postcode "DK-7190" ;
+	rdf:name "Legoland Billund  Billund" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/92.0> a rdf:poi ;
+	rdf:id "92.0" ;
+	rdf:lat "47.8623100" ;
+	rdf:long "7.2980800" ;
+	rdf:postcode "FR-68190" ;
+	rdf:name "Le parc du petit prince" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/93.0> a rdf:poi ;
+	rdf:id "93.0" ;
+	rdf:lat "45.0190200" ;
+	rdf:long "13.9556900" ;
+	rdf:postcode "HR-52207" ;
+	rdf:name "Glavani park" ;
+	rdf:count "0.0" ;
+	rdf:category "1.0" .
+
+<http://example.org/poi/94.0> a rdf:poi ;
+	rdf:id "94.0" ;
+	rdf:lat "49.4571800" ;
+	rdf:long "11.0738900" ;
+	rdf:postcode "  DE-90403" ;
+	rdf:name " Albrecht-Dürer-Haus" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/95.0> a rdf:poi ;
+	rdf:id "95.0" ;
+	rdf:lat "49.4565800" ;
+	rdf:long "11.0774900" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Fembohaus" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/96.0> a rdf:poi ;
+	rdf:id "96.0" ;
+	rdf:lat "49.4547200" ;
+	rdf:long "11.0745100" ;
+	rdf:postcode "  DE-90403" ;
+	rdf:name " Spielzeugmuseum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/97.0> a rdf:poi ;
+	rdf:id "97.0" ;
+	rdf:lat "49.4573500" ;
+	rdf:long "11.0842300" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Tucherschloss und Hirschvogelsaal" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/98.0> a rdf:poi ;
+	rdf:id "98.0" ;
+	rdf:lat "49.4551400" ;
+	rdf:long "11.0770400" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Mittelalterl. Lochgefängnisse" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/99.0> a rdf:poi ;
+	rdf:id "99.0" ;
+	rdf:lat "49.4616300" ;
+	rdf:long "11.1109400" ;
+	rdf:postcode "  DE-90489" ;
+	rdf:name " Museum Industriekultur" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/100.0> a rdf:poi ;
+	rdf:id "100.0" ;
+	rdf:lat "49.4615700" ;
+	rdf:long "11.1104800" ;
+	rdf:postcode "  DE-90489" ;
+	rdf:name " Graphische Sammlung" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/101.0> a rdf:poi ;
+	rdf:id "101.0" ;
+	rdf:lat "49.4573400" ;
+	rdf:long "11.0749300" ;
+	rdf:postcode "  DE-90403" ;
+	rdf:name " Hist. Kunstbunker" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/102.0> a rdf:poi ;
+	rdf:id "102.0" ;
+	rdf:lat "49.2468400" ;
+	rdf:long "11.0946700" ;
+	rdf:postcode "  DE-91154" ;
+	rdf:name " Fabrik-Museum Roth" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/103.0> a rdf:poi ;
+	rdf:id "103.0" ;
+	rdf:lat "49.4489400" ;
+	rdf:long "11.0752100" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Germanische National Museum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/104.0> a rdf:poi ;
+	rdf:id "104.0" ;
+	rdf:lat "48.1315500" ;
+	rdf:long "11.5852800" ;
+	rdf:postcode "  DE-81541" ;
+	rdf:name " Deutsches Museum München" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/105.0> a rdf:poi ;
+	rdf:id "105.0" ;
+	rdf:lat "52.5175400" ;
+	rdf:long "13.3973100" ;
+	rdf:postcode "  DE-10117" ;
+	rdf:name " Deutsches Historisches Museum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/106.0> a rdf:poi ;
+	rdf:id "106.0" ;
+	rdf:lat "47.6503900" ;
+	rdf:long "9.4827400" ;
+	rdf:postcode "  DE-88045" ;
+	rdf:name " Zeppelin Museum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/107.0> a rdf:poi ;
+	rdf:id "107.0" ;
+	rdf:lat "51.4426800" ;
+	rdf:long "7.0038700" ;
+	rdf:postcode "  DE-45128" ;
+	rdf:name " Museum Folkwang" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/108.0> a rdf:poi ;
+	rdf:id "108.0" ;
+	rdf:lat "52.5062900" ;
+	rdf:long "13.3522800" ;
+	rdf:postcode "  DE-10777" ;
+	rdf:name " bauhaus - archiv museum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/109.0> a rdf:poi ;
+	rdf:id "109.0" ;
+	rdf:lat "50.7005200" ;
+	rdf:long "7.1490900" ;
+	rdf:postcode "  DE-53175" ;
+	rdf:name " Deutsches Museum Bonn" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/110.0> a rdf:poi ;
+	rdf:id "110.0" ;
+	rdf:lat "52.3636900" ;
+	rdf:long "9.7394000" ;
+	rdf:postcode "  DE-30169" ;
+	rdf:name " Sprengel Museum Hannover" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/111.0> a rdf:poi ;
+	rdf:id "111.0" ;
+	rdf:lat "50.9404100" ;
+	rdf:long "6.9605800" ;
+	rdf:postcode "  DE-50668" ;
+	rdf:name " Museum Ludwig" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/112.0> a rdf:poi ;
+	rdf:id "112.0" ;
+	rdf:lat "49.3769700" ;
+	rdf:long "10.1785800" ;
+	rdf:postcode "  DE-91541" ;
+	rdf:name " Dtsch. Weihnachtsmuseum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/113.0> a rdf:poi ;
+	rdf:id "113.0" ;
+	rdf:lat "49.4454200" ;
+	rdf:long "11.0745400" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Verkehrsmuseum Nürnberg" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/114.0> a rdf:poi ;
+	rdf:id "114.0" ;
+	rdf:lat "49.4481800" ;
+	rdf:long "11.0803200" ;
+	rdf:postcode "  DE-90402" ;
+	rdf:name " Neues Museum Nürnberg" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/115.0> a rdf:poi ;
+	rdf:id "115.0" ;
+	rdf:lat "49.5676800" ;
+	rdf:long "10.9597500" ;
+	rdf:postcode "  DE-91056" ;
+	rdf:name " Museum im Amtshausschüpfla in Frauenaurach" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/116.0> a rdf:poi ;
+	rdf:id "116.0" ;
+	rdf:lat "49.5972600" ;
+	rdf:long "11.0038800" ;
+	rdf:postcode "  DE-91052" ;
+	rdf:name " Palais Sutterheim" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/117.0> a rdf:poi ;
+	rdf:id "117.0" ;
+	rdf:lat "49.6402300" ;
+	rdf:long "11.1927600" ;
+	rdf:postcode "  DE-91338" ;
+	rdf:name " Synagoge und jüd. Museum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/118.0> a rdf:poi ;
+	rdf:id "118.0" ;
+	rdf:lat "49.4770100" ;
+	rdf:long "10.9902000" ;
+	rdf:postcode "  DE-90762" ;
+	rdf:name " Jüd. Museum Fürth" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/119.0> a rdf:poi ;
+	rdf:id "119.0" ;
+	rdf:lat "49.5579000" ;
+	rdf:long "11.3410800" ;
+	rdf:postcode "  DE-91220" ;
+	rdf:name " Jüd. Museum Franken in Schnaittach" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/120.0> a rdf:poi ;
+	rdf:id "120.0" ;
+	rdf:lat "49.4680200" ;
+	rdf:long "11.0130400" ;
+	rdf:postcode "  DE-90429" ;
+	rdf:name " Rundfunkmuseum der Stadt Fürth" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/121.0> a rdf:poi ;
+	rdf:id "121.0" ;
+	rdf:lat "49.1755000" ;
+	rdf:long "10.9259000" ;
+	rdf:postcode "  DE-91174" ;
+	rdf:name " Hopfen- & Biermuseum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/122.0> a rdf:poi ;
+	rdf:id "122.0" ;
+	rdf:lat "47.7938300" ;
+	rdf:long "13.0234100" ;
+	rdf:postcode "  AT-5020" ;
+	rdf:name " Stiegl`s Brauwelt" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/123.0> a rdf:poi ;
+	rdf:id "123.0" ;
+	rdf:lat "48.2097800" ;
+	rdf:long "13.4882100" ;
+	rdf:postcode "  AT-94072" ;
+	rdf:name " Kellerbrauerei" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/124.0> a rdf:poi ;
+	rdf:id "124.0" ;
+	rdf:lat "48.7253000" ;
+	rdf:long "16.3868800" ;
+	rdf:postcode "  AT-2136" ;
+	rdf:name " 1. Österr. Biermuseum" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/125.0> a rdf:poi ;
+	rdf:id "125.0" ;
+	rdf:lat "48.2040300" ;
+	rdf:long "16.3616200" ;
+	rdf:postcode "  AT-1014" ;
+	rdf:name " Kunsthistorisches Museum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/126.0> a rdf:poi ;
+	rdf:id "126.0" ;
+	rdf:lat "48.2049500" ;
+	rdf:long "16.3603500" ;
+	rdf:postcode "  AT-1014" ;
+	rdf:name " Naturhistorisches Museum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/127.0> a rdf:poi ;
+	rdf:id "127.0" ;
+	rdf:lat "48.2186400" ;
+	rdf:long "16.3633900" ;
+	rdf:postcode "  AT-1090" ;
+	rdf:name " Sigmund Freud Museum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/128.0> a rdf:poi ;
+	rdf:id "128.0" ;
+	rdf:lat "48.1902600" ;
+	rdf:long "16.3171200" ;
+	rdf:postcode "  AT-1140" ;
+	rdf:name " techn. museum wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/129.0> a rdf:poi ;
+	rdf:id "129.0" ;
+	rdf:lat "48.2073000" ;
+	rdf:long "16.3692700" ;
+	rdf:postcode "  AT-1010" ;
+	rdf:name " Jüd. Museum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/130.0> a rdf:poi ;
+	rdf:id "130.0" ;
+	rdf:lat "48.1834000" ;
+	rdf:long "16.3913500" ;
+	rdf:postcode "  AT-1090" ;
+	rdf:name " Heeresgeschichtl. Museum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
+
+<http://example.org/poi/131.0> a rdf:poi ;
+	rdf:id "131.0" ;
+	rdf:lat "48.2037700" ;
+	rdf:long "16.3593400" ;
+	rdf:postcode "  AT-1070" ;
+	rdf:name " Leopoldmuseum Wien" ;
+	rdf:count "0.0" ;
+	rdf:category "2.0" .
