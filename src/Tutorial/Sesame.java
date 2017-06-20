@@ -6,10 +6,7 @@ import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.impl.TreeModel;
 import org.eclipse.rdf4j.model.vocabulary.FOAF;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
-import org.eclipse.rdf4j.query.BindingSet;
-import org.eclipse.rdf4j.query.QueryLanguage;
-import org.eclipse.rdf4j.query.TupleQuery;
-import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.*;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
@@ -120,6 +117,72 @@ public class Sesame {
             }
         }
     }
+
+
+  /*   public void UpdatePointOfInterest(PointofInterest poi) {
+
+        Double id = Double.valueOf(poi.getId().toString());
+        String lat = poi.getLat().toString();
+        String lon = poi.getLon().toString();
+        String name = poi.getText();
+        String count = poi.getValue().toString();
+
+        String cat = poi.getCategory().toString();
+
+        try {
+            repoConn = repo.getConnection();
+
+            String s = id.toString();
+            String updateQuery = "DELETE { ?poi } INSERT { ?poi rdf:id \"" + id + "\" ; rdf:lat " + lat + " ; rdf:long " + lon + " ; rdf:" +
+                    "name \"" + name + "\" ; rdf:category \"" + cat + "\" ; rdf:count " + count + " . } WHERE { ?poi a rdf:poi . ?poi rdf:id " + id.toString() + "}";
+            System.out.println(updateQuery);
+            Update updateQueryQuery = repoConn.prepareUpdate(QueryLanguage.SPARQL, updateQuery);
+            updateQueryQuery.execute();
+            checkData(poi);
+        } catch (Exception ex) {
+            System.out.println(ex.getLocalizedMessage() + "\n" + ex.getStackTrace().toString());
+        } finally {
+            try {
+                repoConn.close();
+            } catch (Exception ex1) {
+                System.out.println("Connection could not be closed:\n" + ex1.getLocalizedMessage());
+            }
+        }
+    }
+    private void checkData(PointofInterest poi) {
+        String id = poi.getId().toString();
+        String lat = poi.getLat().toString();
+        String lon = poi.getLon().toString();
+        String name = poi.getText();
+        String count = poi.getValue().toString();
+
+        String cat = poi.getCategory().toString();
+        TupleQueryResult result = null;
+
+        try {
+            repoConn = repo.getConnection();
+
+            String selectQueryString = "SELECT (?poi)";
+            TupleQuery tupleQuery = repoConn.prepareTupleQuery(QueryLanguage.SPARQL, selectQueryString);
+            result = tupleQuery.evaluate();
+
+            while (result.hasNext()) {
+                String s = result.toString();
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getLocalizedMessage() + "\n" + ex.getStackTrace().toString());
+        } finally {
+            try {
+                repoConn.close();
+            } catch (Exception ex1) {
+                System.out.println("Connection could not be closed:\n" + ex1.getLocalizedMessage());
+            }
+        }
+    }
+    private void insertPOI(PointofInterest poi) {
+        //String query = "INSERT DATA { <http://example.org/poi/"+ Double.valueOf(Double.valueOf(poi.getId().toString())) +"> dc:title ""A new book""; dc:creator  ""A.N.Other"" .}";
+    } */
 
 
 }
