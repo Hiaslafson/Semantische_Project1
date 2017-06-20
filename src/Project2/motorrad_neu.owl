@@ -1,0 +1,685 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/motorrad/rennen"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/motorrad/rennen">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#500ccm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW8"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Asia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamPRManager"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Driver"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RaceType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bikeHasRaceType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#boxCrewResponsibleForTires"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bikeIsModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW11"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rain"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#medicalTeamHasMembers"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoCrossBike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Soft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Werner_Richtsfeld"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hard"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bikeHasTires"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#countryHasRaceType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW9"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoGP4"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamTechnicalDirector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ClassicalRace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Model"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#raceIsOn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoxCrewFuel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoCross"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamPhysiotherapist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Medium"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Race"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoxCrew"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW12"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#driverHasTitle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Date"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW4"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasNationalaty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Europe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoGP3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Team"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamManager"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoxCrewTires"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#driverHasBike"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#driverHasTeam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#250ccm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW13"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manufacturer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW1"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#managingTeamHasMembers"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SuperSoft"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW7"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Title"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamDoctor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Africa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoGP2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Matthias_Winkler"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MedicalTeam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoxCrewMechanic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OldBike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SouthAmerica"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#boxHasMember"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#teamHasTitle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Australia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ManagingTeam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW10"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KW6"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MotoGP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NorthAmerica"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bikeHasManufacturer"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Bike"/>
+        <ObjectExactCardinality cardinality="2">
+            <ObjectProperty IRI="#bikeHasTires"/>
+            <Class IRI="#Tire"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BoxCrew"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#boxHasMember"/>
+            <Class IRI="#BoxCrewFuel"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BoxCrew"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#boxHasMember"/>
+            <Class IRI="#BoxCrewMechanic"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BoxCrew"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#boxHasMember"/>
+            <Class IRI="#BoxCrewTires"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Driver"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#driverHasBike"/>
+            <Class IRI="#Bike"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ManagingTeam"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#managingTeamHasMembers"/>
+            <Class IRI="#TeamManager"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ManagingTeam"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#managingTeamHasMembers"/>
+            <Class IRI="#TeamPRManager"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ManagingTeam"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#managingTeamHasMembers"/>
+            <Class IRI="#TeamTechnicalDirector"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MedicalTeam"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#medicalTeamHasMembers"/>
+            <Class IRI="#TeamDoctor"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MedicalTeam"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#medicalTeamHasMembers"/>
+            <Class IRI="#TeamPhysiotherapist"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MotoCrossBike"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#bikeHasRaceType"/>
+            <Class IRI="#MotoCross"/>
+        </ObjectAllValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OldBike"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#bikeHasRaceType"/>
+            <Class IRI="#ClassicalRace"/>
+        </ObjectAllValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Person"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasNationalaty"/>
+            <Class IRI="#Country"/>
+        </ObjectAllValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Race"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#raceIsOn"/>
+            <Class IRI="#Date"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#500ccm"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#bikeHasRaceType"/>
+            <Class IRI="#MotoGP"/>
+        </ObjectAllValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Africa"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Asia"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Australia"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoxCrew"/>
+        <Class IRI="#Team"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoxCrewFuel"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoxCrewMechanic"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoxCrewTires"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ClassicalRace"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Driver"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Europe"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hard"/>
+        <Class IRI="#Tire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW1"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW10"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW11"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW12"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW13"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW2"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW3"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW4"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW5"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW6"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW7"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW8"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KW9"/>
+        <Class IRI="#Date"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ManagingTeam"/>
+        <Class IRI="#Team"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MedicalTeam"/>
+        <Class IRI="#Team"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medium"/>
+        <Class IRI="#Tire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoCross"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoCrossBike"/>
+        <Class IRI="#Model"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoGP"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoGP2"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoGP3"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MotoGP4"/>
+        <Class IRI="#RaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NorthAmerica"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OldBike"/>
+        <Class IRI="#Model"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RaceType"/>
+        <Class IRI="#Race"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rain"/>
+        <Class IRI="#Tire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Soft"/>
+        <Class IRI="#Tire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SouthAmerica"/>
+        <Class IRI="#Country"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SuperSoft"/>
+        <Class IRI="#Tire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamDoctor"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamManager"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamPRManager"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamPhysiotherapist"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamTechnicalDirector"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#250ccm"/>
+        <Class IRI="#Model"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#500ccm"/>
+        <Class IRI="#Model"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Africa"/>
+        <Class IRI="#Asia"/>
+        <Class IRI="#Australia"/>
+        <Class IRI="#Europe"/>
+        <Class IRI="#NorthAmerica"/>
+        <Class IRI="#SouthAmerica"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ClassicalRace"/>
+        <Class IRI="#MotoCross"/>
+        <Class IRI="#MotoGP"/>
+        <Class IRI="#MotoGP2"/>
+        <Class IRI="#MotoGP3"/>
+        <Class IRI="#MotoGP4"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#KW1"/>
+        <Class IRI="#KW10"/>
+        <Class IRI="#KW11"/>
+        <Class IRI="#KW12"/>
+        <Class IRI="#KW13"/>
+        <Class IRI="#KW2"/>
+        <Class IRI="#KW3"/>
+        <Class IRI="#KW4"/>
+        <Class IRI="#KW5"/>
+        <Class IRI="#KW6"/>
+        <Class IRI="#KW7"/>
+        <Class IRI="#KW8"/>
+        <Class IRI="#KW9"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#TeamDoctor"/>
+        <NamedIndividual IRI="#Matthias_Winkler"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Driver"/>
+        <NamedIndividual IRI="#Werner_Richtsfeld"/>
+    </ClassAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#bikeHasManufacturer"/>
+        <Class IRI="#Bike"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#bikeHasTires"/>
+        <Class IRI="#Bike"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#bikeIsModel"/>
+        <Class IRI="#Bike"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#boxCrewResponsibleForTires"/>
+        <Class IRI="#BoxCrewTires"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#boxHasMember"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#countryHasRaceType"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#driverHasBike"/>
+        <Class IRI="#Driver"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#driverHasTeam"/>
+        <Class IRI="#Driver"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#driverHasTitle"/>
+        <Class IRI="#Driver"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasNationalaty"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#managingTeamHasMembers"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#medicalTeamHasMembers"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#raceIsOn"/>
+        <Class IRI="#Race"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#teamHasTitle"/>
+        <Class IRI="#Team"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#bikeHasManufacturer"/>
+        <Class IRI="#Manufacturer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#bikeHasTires"/>
+        <Class IRI="#Tire"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#bikeIsModel"/>
+        <Class IRI="#Model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#boxCrewResponsibleForTires"/>
+        <Class IRI="#Tire"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#boxHasMember"/>
+        <Class IRI="#BoxCrew"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#countryHasRaceType"/>
+        <Class IRI="#RaceType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#driverHasBike"/>
+        <Class IRI="#Bike"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#driverHasTeam"/>
+        <Class IRI="#Team"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#driverHasTitle"/>
+        <Class IRI="#Title"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasNationalaty"/>
+        <Class IRI="#Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#managingTeamHasMembers"/>
+        <Class IRI="#ManagingTeam"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#medicalTeamHasMembers"/>
+        <Class IRI="#MedicalTeam"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#raceIsOn"/>
+        <Class IRI="#Date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#teamHasTitle"/>
+        <Class IRI="#Title"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

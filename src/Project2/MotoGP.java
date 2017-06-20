@@ -39,8 +39,8 @@ public class MotoGP {
     private static OWLOntology ontology;
     private static OWLReasoner reasoner;
     private static OWLDataFactory dataFactory;
-    private static final String URI = "http://www.semanticweb.org/fussball-ontology/EM#";
-    private static final String OWLFILEABSOLUTINPUT = MotoGP.class.getResource("motorrad_xml.owl").getPath();
+    private static final String URI = "http://www.semanticweb.org/motorrad/rennen#";
+    private static final String OWLFILEABSOLUTINPUT = MotoGP.class.getResource("motorrad_man_neu.owl").getPath();
     private static final String OWLFILEABSOLUTOUTPUT = MotoGP.class.getResource("motorrad_xml_new.owl").getPath();
     private static boolean isInit = false;
 
@@ -103,30 +103,30 @@ public class MotoGP {
         for(Iterator var4 = owlClasses.iterator(); var4.hasNext(); ++i) {
             OWLClass owlClass = (OWLClass)var4.next();
             if(i > 0) {
-                strClasses = strClasses + ",";
+                strClasses = strClasses + "," +"\n";
             }
 
-            strClasses = strClasses + Utils.classToJson(owlClass, ontology, reasoner, false, true);
+            strClasses = strClasses + Utils.classToJson(owlClass, ontology, reasoner, false, true );
         }
 
-        strClasses = strClasses + "]";
+        strClasses = strClasses + "]" ;
         return strClasses;
     }
 
     public static String getClasses(String headClassName, boolean exportSubclasses) {
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/matthiasw/ontologies/2017/5/untitled-ontology-6#" + headClassName));
+        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + headClassName));
         return '[' + Utils.classToJson(owlClass, ontology, reasoner, exportSubclasses, true) + ']';
     }
 
     public static String getIndividual(String individualName) {
-        OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create("http://www.semanticweb.org/matthiasw/ontologies/2017/5/untitled-ontology-6#" + individualName));
+        OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create(URI + individualName));
         return Utils.individualToJson(owlIndividual, ontology, true, reasoner);
     }
 
     public static String queryIndividuals(String varQuery) {
         varQuery = varQuery.toLowerCase();
         String[] varQueryArray = varQuery.split("\\s+");
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#Person"));
+        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI));
         Set<OWLIndividual> allIndividuals = owlClass.getIndividuals(ontology);
         addIndividualsToSet(allIndividuals, owlClass);
         Set<OWLIndividual> owlIndiviuals = new HashSet();
@@ -153,13 +153,13 @@ public class MotoGP {
     }
 
     public static String getIndividuals(String className) {
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + className));
+        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
         Set<OWLIndividual> individuals = owlClass.getIndividuals(ontology);
         return Utils.individualToJson(individuals, ontology, true, reasoner);
     }
 
     public static String getIndividualsForClassAndSubClass(String className) {
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + className));
+        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
         Set<OWLIndividual> individuals = owlClass.getIndividuals(ontology);
         addIndividualsToSet(individuals, owlClass);
         return Utils.individualToJson(individuals, ontology, true, reasoner);
@@ -177,7 +177,7 @@ public class MotoGP {
 
     }
 
-   /*  public static void changeOrAddIndivdual(String json) throws Exception {
+    /*  public static void changeOrAddIndivdual(String json) throws Exception {
         System.out.println(json);
         JSONObject jsonIndividual = new JSONObject(json);
         String shortName = jsonIndividual.getString("individualShortName");
@@ -240,13 +240,13 @@ public class MotoGP {
     } */
 
     public static OWLNamedIndividual addIndividual(String newIndividualName) {
-        OWLNamedIndividual individual = dataFactory.getOWLNamedIndividual(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + newIndividualName));
+        OWLNamedIndividual individual = dataFactory.getOWLNamedIndividual(IRI.create(URI + newIndividualName));
         saveOntology();
         return individual;
     }
 
     public static void addClassPropertyToIndividual(OWLIndividual owlIndividual, String className) {
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + className));
+        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
         OWLClassAssertionAxiom classAssertion = dataFactory.getOWLClassAssertionAxiom(owlClass, owlIndividual);
         manager.addAxiom(ontology, classAssertion);
         reasoner.flush();
@@ -254,7 +254,7 @@ public class MotoGP {
     }
 
     public static void addDataPropertyToIndividual(OWLIndividual owlIndividual, String property, String value) {
-        OWLDataProperty owlProperty = dataFactory.getOWLDataProperty(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + property));
+        OWLDataProperty owlProperty = dataFactory.getOWLDataProperty(IRI.create(URI + property));
         OWLLiteral literal = dataFactory.getOWLLiteral(value, "");
         OWLDataPropertyAssertionAxiom axiom1 = dataFactory.getOWLDataPropertyAssertionAxiom(owlProperty, owlIndividual, literal);
         manager.addAxiom(ontology, axiom1);
@@ -263,8 +263,8 @@ public class MotoGP {
     }
 
     public static void addObjectPropertyToIndividual(OWLIndividual owlIndividual, String property, String value) {
-        OWLIndividual owlValueIndivudal = dataFactory.getOWLNamedIndividual(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + value));
-        OWLObjectProperty owlProperty = dataFactory.getOWLObjectProperty(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + property));
+        OWLIndividual owlValueIndivudal = dataFactory.getOWLNamedIndividual(IRI.create(URI + value));
+        OWLObjectProperty owlProperty = dataFactory.getOWLObjectProperty(IRI.create(URI + property));
         OWLObjectPropertyAssertionAxiom axiom1 = dataFactory.getOWLObjectPropertyAssertionAxiom(owlProperty, owlIndividual, owlValueIndivudal);
         AddAxiom addAxiom1 = new AddAxiom(ontology, axiom1);
         manager.applyChange(addAxiom1);
@@ -273,7 +273,7 @@ public class MotoGP {
     }
 
     public static void deleteIndividual(String name) throws OWLOntologyStorageException {
-        OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create("http://www.semanticweb.org/fussball-ontology/EM#" + name));
+        OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create(URI + name));
         OWLEntityRemover remover = new OWLEntityRemover(manager, Collections.singleton(ontology));
         owlIndividual.accept(remover);
         manager.applyChanges(remover.getChanges());
@@ -281,7 +281,7 @@ public class MotoGP {
         saveOntology();
     }
 
-    private static void saveOntology() {
+    public static void saveOntology() {
         try {
             File outputOntologyFile = new File(OWLFILEABSOLUTOUTPUT);
             FileOutputStream outputStream = new FileOutputStream(outputOntologyFile);

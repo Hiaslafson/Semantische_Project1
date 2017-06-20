@@ -1,5 +1,12 @@
 package Project2;
 
+
+import Project1.PersonDataset;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+
+import java.util.Scanner;
+
 /**
  * Created by MatthiasW on 20.06.2017.
  */
@@ -10,18 +17,77 @@ public class test {
 
     public static void main(String[] args)
     {
-
+        MotoGP m = new MotoGP();
         try {
-            MotoGP m = new MotoGP();
             m.init();
-            String test = m.getAllClasses();
-         //   System.out.println(test);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-            String test1 = m.getClasses("Person"  ,true);
-            //System.out.println(test1);
 
-            String test2 = m.getIndividual("Richtsfeld_Werner");
-            System.out.println(test2);
+        Scanner scanner = new Scanner(System.in);
+
+        PersonDataset rdf = new PersonDataset();
+
+        while (true) {
+            System.out.println("\n s:show All Classes -  c: Show one Class  -   i: show one Individual -  d: Delete Individula   -  a: add Individual ");
+            String input = scanner.nextLine();
+            if (input.equals("s")) {
+                String test = m.getAllClasses();
+                System.out.println(test);
+
+            } else if (input.equals("c")) {
+                System.out.println("Enter Class");
+                String value = scanner.nextLine();
+                System.out.println("Subclasses?   (y/n)");
+                String b = scanner.nextLine();
+                if(b.equals("y")) {
+                    String test1 = m.getClasses(value, true);
+                    System.out.println(test1);
+                }else if(b.equals("n")){
+                    String test1 = m.getClasses(value, false);
+                    System.out.println(test1);
+                }
+
+            } else if (input.equals("i")) {
+                System.out.println("Enter Individual");
+                String value = scanner.nextLine();
+                String test2 = m.getIndividual(value);
+                System.out.println(test2);
+            } else if (input.equals("d")) {
+                System.out.println("Enter Individual to delete");
+                String value = scanner.nextLine();
+
+                try {
+                    m.deleteIndividual(value);
+                } catch (OWLOntologyStorageException e) {
+                    e.printStackTrace();
+                }
+
+            } else if (input.equals("a")) {
+
+                m.addIndividual("Michael_Lehner");
+
+
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+        //  String test3 =   m.getIndividuals("Driver");
+          //  System.out.println(test3);
+
+
+
 
             //<http://www.semanticweb.org/fussball-ontology/EM#Country>
             //test flat structure
@@ -48,10 +114,7 @@ public class test {
             System.out.println(individualJson); */
 
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
 
 //		Person martin = new Person("Martin", "Weissensteiner", "Hauptstrasse 10", "4040", "Steyr", "Austria",
 //				new Date(System.currentTimeMillis()), "M" ,  "CGM Clinical Oesterreich");
