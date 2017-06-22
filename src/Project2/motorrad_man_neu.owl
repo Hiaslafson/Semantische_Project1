@@ -207,6 +207,9 @@ ObjectProperty: owl:topObjectProperty
     
 Class: <http://www.semanticweb.org/motorrad/rennen#250ccm>
 
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#bikeHasRaceType> only <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
+    
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Model>
     
@@ -294,7 +297,8 @@ Class: <http://www.semanticweb.org/motorrad/rennen#Day>
 Class: <http://www.semanticweb.org/motorrad/rennen#Driver>
 
     EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#driverHasBike> some <http://www.semanticweb.org/motorrad/rennen#Bike>
+        <http://www.semanticweb.org/motorrad/rennen#driverHasBike> some <http://www.semanticweb.org/motorrad/rennen#Bike>,
+        <http://www.semanticweb.org/motorrad/rennen#driverHasTitle> some <http://www.semanticweb.org/motorrad/rennen#Title>
     
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Person>
@@ -413,9 +417,6 @@ Class: <http://www.semanticweb.org/motorrad/rennen#OldBike>
     
 Class: <http://www.semanticweb.org/motorrad/rennen#Person>
 
-    EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#hasNationality> only <http://www.semanticweb.org/motorrad/rennen#Country>
-    
     
 Class: <http://www.semanticweb.org/motorrad/rennen#Race>
 
@@ -455,6 +456,9 @@ Class: <http://www.semanticweb.org/motorrad/rennen#SuperSoft>
     
 Class: <http://www.semanticweb.org/motorrad/rennen#Team>
 
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#teamHasTitle> some <http://www.semanticweb.org/motorrad/rennen#Title>
+    
     
 Class: <http://www.semanticweb.org/motorrad/rennen#TeamDoctor>
 
@@ -694,6 +698,15 @@ Individual: <http://www.semanticweb.org/motorrad/rennen#Matthias_Winkler>
     
     Facts:  
      <http://www.semanticweb.org/motorrad/rennen#hasNationality>  <http://www.semanticweb.org/motorrad/rennen#Austria>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Michael_Lehner>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#TeamPRManager>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#hasNationality>  <http://www.semanticweb.org/motorrad/rennen#China>
     
     
 Individual: <http://www.semanticweb.org/motorrad/rennen#Monte_Carlo>

@@ -37,6 +37,15 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#driverHasTeam>
         <http://www.semanticweb.org/motorrad/rennen#Team>
     
     
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#manufacturerHasModel>
+
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#Model>
+    
+    
 ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#countryHasRaceType>
 
     Domain: 
@@ -67,13 +76,25 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#teamHasTitle>
         <http://www.semanticweb.org/motorrad/rennen#Title>
     
     
-ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#hasNationalaty>
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#dateHasKW>
 
     Domain: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
+        <http://www.semanticweb.org/motorrad/rennen#Date>
     
     Range: 
-        <http://www.semanticweb.org/motorrad/rennen#Country>
+        <http://www.semanticweb.org/motorrad/rennen#KW>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#dateHasDay>
+
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#Day>
     
     
 ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#bikeIsModel>
@@ -85,6 +106,21 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#bikeIsModel>
         <http://www.semanticweb.org/motorrad/rennen#Model>
     
     
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#manufacturerParticipateIn>
+
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#RaceType>
+    
+    
+ObjectProperty: owl:topObjectProperty
+
+    
 ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#driverHasBike>
 
     Domain: 
@@ -94,6 +130,24 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#driverHasBike>
         <http://www.semanticweb.org/motorrad/rennen#Bike>
     
     
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#dateHasYear>
+
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#Year>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#hasNationality>
+
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#Country>
+    
+    
 ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#boxCrewResponsibleForTires>
 
     Domain: 
@@ -101,6 +155,18 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#boxCrewResponsibleFo
     
     Range: 
         <http://www.semanticweb.org/motorrad/rennen#Tire>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#dateHasMonth>
+
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    Domain: 
+        <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    Range: 
+        <http://www.semanticweb.org/motorrad/rennen#Month>
     
     
 ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#managingTeamHasMembers>
@@ -139,20 +205,47 @@ ObjectProperty: <http://www.semanticweb.org/motorrad/rennen#medicalTeamHasMember
         <http://www.semanticweb.org/motorrad/rennen#MedicalTeam>
     
     
+Class: <http://www.semanticweb.org/motorrad/rennen#Day>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#TeamDoctor>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
+    
+    
 Class: <http://www.semanticweb.org/motorrad/rennen#Medium>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Tire>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
-
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#KW12>
+Class: <http://www.semanticweb.org/motorrad/rennen#Australia>
 
     SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+        <http://www.semanticweb.org/motorrad/rennen#Country>
     
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#NorthAmerica>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Country>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#RaceType>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#Person>
+
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+
     
 Class: <http://www.semanticweb.org/motorrad/rennen#ClassicalRace>
 
@@ -170,28 +263,25 @@ Class: <http://www.semanticweb.org/motorrad/rennen#MedicalTeam>
         <http://www.semanticweb.org/motorrad/rennen#Team>
     
     
+Class: <http://www.semanticweb.org/motorrad/rennen#MotoCross>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#RaceType>
+    
+    
 Class: <http://www.semanticweb.org/motorrad/rennen#Hard>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Tire>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW13>
+Class: <http://www.semanticweb.org/motorrad/rennen#500ccm>
 
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#bikeHasRaceType> only <http://www.semanticweb.org/motorrad/rennen#MotoGP>
+    
     SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#KW10>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#KW11>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+        <http://www.semanticweb.org/motorrad/rennen#Model>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#MotoCrossBike>
@@ -203,16 +293,63 @@ Class: <http://www.semanticweb.org/motorrad/rennen#MotoCrossBike>
         <http://www.semanticweb.org/motorrad/rennen#Model>
     
     
+Class: <http://www.semanticweb.org/motorrad/rennen#TeamPhysiotherapist>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#250ccm>
+
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#bikeHasRaceType> only <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
+    
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Model>
+    
+    
 Class: <http://www.semanticweb.org/motorrad/rennen#TeamPRManager>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Person>
     
     
+Class: <http://www.semanticweb.org/motorrad/rennen#Soft>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Tire>
+    
+    
 Class: <http://www.semanticweb.org/motorrad/rennen#Tire>
 
     
+Class: <http://www.semanticweb.org/motorrad/rennen#Date>
+
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrew>
+
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewFuel>,
+        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewTires>,
+        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewMechanic>
+    
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Team>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#KW>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    
 Class: <http://www.semanticweb.org/motorrad/rennen#SouthAmerica>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Country>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#Africa>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Country>
@@ -226,6 +363,15 @@ Class: <http://www.semanticweb.org/motorrad/rennen#Europe>
     
 Class: <http://www.semanticweb.org/motorrad/rennen#Team>
 
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#teamHasTitle> some <http://www.semanticweb.org/motorrad/rennen#Title>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#TeamManager>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
+    
     
 Class: <http://www.semanticweb.org/motorrad/rennen#ManagingTeam>
 
@@ -236,6 +382,12 @@ Class: <http://www.semanticweb.org/motorrad/rennen#ManagingTeam>
     
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Team>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrewFuel>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#Bike>
@@ -262,132 +414,16 @@ Class: <http://www.semanticweb.org/motorrad/rennen#OldBike>
 Class: <http://www.semanticweb.org/motorrad/rennen#Model>
 
     
-Class: <http://www.semanticweb.org/motorrad/rennen#Race>
-
-    EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#raceIsOn> exactly 1 <http://www.semanticweb.org/motorrad/rennen#Date>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Asia>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Country>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrewTires>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Title>
-
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#TeamDoctor>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Australia>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Country>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#NorthAmerica>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Country>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#RaceType>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Person>
-
-    EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#hasNationalaty> only <http://www.semanticweb.org/motorrad/rennen#Country>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#MotoCross>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#RaceType>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#500ccm>
-
-    EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#bikeHasRaceType> only <http://www.semanticweb.org/motorrad/rennen#MotoGP>
-    
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Model>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#TeamPhysiotherapist>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#250ccm>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Model>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Soft>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Tire>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Date>
-
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrew>
-
-    EquivalentTo: 
-        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewFuel>,
-        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewTires>,
-        <http://www.semanticweb.org/motorrad/rennen#boxHasMember> some <http://www.semanticweb.org/motorrad/rennen#BoxCrewMechanic>
-    
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Team>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#Africa>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Country>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#TeamManager>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrewFuel>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Person>
-    
-    
 Class: <http://www.semanticweb.org/motorrad/rennen#Rain>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Tire>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW7>
+Class: <http://www.semanticweb.org/motorrad/rennen#Race>
 
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+    EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#raceIsOn> exactly 1 <http://www.semanticweb.org/motorrad/rennen#Date>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#SuperSoft>
@@ -396,16 +432,10 @@ Class: <http://www.semanticweb.org/motorrad/rennen#SuperSoft>
         <http://www.semanticweb.org/motorrad/rennen#Tire>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW8>
+Class: <http://www.semanticweb.org/motorrad/rennen#Asia>
 
     SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#KW9>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+        <http://www.semanticweb.org/motorrad/rennen#Country>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#RaceType>
@@ -423,16 +453,22 @@ Class: <http://www.semanticweb.org/motorrad/rennen#TeamTechnicalDirector>
         <http://www.semanticweb.org/motorrad/rennen#Person>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW1>
+Class: <http://www.semanticweb.org/motorrad/rennen#Month>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Date>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW2>
+Class: <http://www.semanticweb.org/motorrad/rennen#Year>
 
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#BoxCrewTires>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/motorrad/rennen#Person>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP4>
@@ -441,31 +477,23 @@ Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP4>
         <http://www.semanticweb.org/motorrad/rennen#RaceType>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW3>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
-    
-    
-Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP3>
-
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#RaceType>
-    
-    
 Class: <http://www.semanticweb.org/motorrad/rennen#Driver>
 
     EquivalentTo: 
+        <http://www.semanticweb.org/motorrad/rennen#driverHasTitle> some <http://www.semanticweb.org/motorrad/rennen#Title>,
         <http://www.semanticweb.org/motorrad/rennen#driverHasBike> some <http://www.semanticweb.org/motorrad/rennen#Bike>
     
     SubClassOf: 
         <http://www.semanticweb.org/motorrad/rennen#Person>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW4>
+Class: <http://www.semanticweb.org/motorrad/rennen#Title>
+
+    
+Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP3>
 
     SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+        <http://www.semanticweb.org/motorrad/rennen#RaceType>
     
     
 Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
@@ -474,16 +502,200 @@ Class: <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
         <http://www.semanticweb.org/motorrad/rennen#RaceType>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW5>
+Individual: <http://www.semanticweb.org/motorrad/rennen#Doc1>
 
-    SubClassOf: 
-        <http://www.semanticweb.org/motorrad/rennen#Date>
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#TeamDoctor>
     
     
-Class: <http://www.semanticweb.org/motorrad/rennen#KW6>
+Individual: <http://www.semanticweb.org/motorrad/rennen#Honda>
 
-    SubClassOf: 
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Hans>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Driver>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Oktober>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Month>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#1>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Day>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#SS0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#SuperSoft>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Australia>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Australia>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Monte_Carlo>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoGP>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Werner_Richtsfeld>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Driver>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#GrannyBike>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#OldBike>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Brasil>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#SouthAmerica>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Austin>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoGP>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#raceIsOn>  <http://www.semanticweb.org/motorrad/rennen#1_Oktober_2017>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Versus>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#500ccm>,
+        <http://www.semanticweb.org/motorrad/rennen#bikeHasTires> some <http://www.semanticweb.org/motorrad/rennen#Medium>,
+        <http://www.semanticweb.org/motorrad/rennen#bikeHasTires> some <http://www.semanticweb.org/motorrad/rennen#Hard>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#bikeHasTires>  <http://www.semanticweb.org/motorrad/rennen#T0815>,
+     <http://www.semanticweb.org/motorrad/rennen#bikeHasManufacturer>  <http://www.semanticweb.org/motorrad/rennen#Honda>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#1_Oktober_2017>
+
+    Types: 
         <http://www.semanticweb.org/motorrad/rennen#Date>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#dateHasMonth>  <http://www.semanticweb.org/motorrad/rennen#Oktober>,
+     <http://www.semanticweb.org/motorrad/rennen#dateHasDay>  <http://www.semanticweb.org/motorrad/rennen#1>,
+     <http://www.semanticweb.org/motorrad/rennen#dateHasKW>  <http://www.semanticweb.org/motorrad/rennen#KW2>,
+     <http://www.semanticweb.org/motorrad/rennen#dateHasYear>  <http://www.semanticweb.org/motorrad/rennen#2017>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#T0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Hard>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Superjump>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoCrossBike>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Kongo>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Africa>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#S0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Soft>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Kawasaki>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Ducati>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#manufacturerParticipateIn>  <http://www.semanticweb.org/motorrad/rennen#Austin>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Chile>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#SouthAmerica>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Harley>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#United_States>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#NorthAmerica>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Manager1>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#TeamManager>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Austria>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Europe>,
+        <http://www.semanticweb.org/motorrad/rennen#countryHasRaceType> only 
+            (<http://www.semanticweb.org/motorrad/rennen#MotoGP>
+             or <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
+             or <http://www.semanticweb.org/motorrad/rennen#MotoGP3>)
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#R0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Rain>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#2017>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Year>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Riga>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoCross>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#China>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Asia>
     
     
 Individual: <http://www.semanticweb.org/motorrad/rennen#Matthias_Winkler>
@@ -491,12 +703,100 @@ Individual: <http://www.semanticweb.org/motorrad/rennen#Matthias_Winkler>
     Types: 
         <http://www.semanticweb.org/motorrad/rennen#TeamDoctor>
     
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#hasNationality>  <http://www.semanticweb.org/motorrad/rennen#Austria>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#BWM>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#manufacturerHasModel> only <http://www.semanticweb.org/motorrad/rennen#MotoCrossBike>,
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#M0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Medium>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Linz>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoGP2>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Germany>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Europe>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#F500>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Bike>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#bikeHasManufacturer>  <http://www.semanticweb.org/motorrad/rennen#BWM>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Erzberg>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoCross>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#raceIsOn>  <http://www.semanticweb.org/motorrad/rennen#1_Oktober_2017>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#H0815>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Hard>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Wien>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#MotoGP4>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#Michael_Lehner>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#TeamPRManager>
+    
+    Facts:  
+     <http://www.semanticweb.org/motorrad/rennen#hasNationality>  <http://www.semanticweb.org/motorrad/rennen#China>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#KTM>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#Manufacturer>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#KW1>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#KW>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#KW2>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#KW>
+    
+    
+Individual: <http://www.semanticweb.org/motorrad/rennen#FF250>
+
+    Types: 
+        <http://www.semanticweb.org/motorrad/rennen#250ccm>
+    
     
 DisjointClasses: 
     <http://www.semanticweb.org/motorrad/rennen#ClassicalRace>,<http://www.semanticweb.org/motorrad/rennen#MotoCross>,<http://www.semanticweb.org/motorrad/rennen#MotoGP>,<http://www.semanticweb.org/motorrad/rennen#MotoGP2>,<http://www.semanticweb.org/motorrad/rennen#MotoGP3>,<http://www.semanticweb.org/motorrad/rennen#MotoGP4>
-
-DisjointClasses: 
-    <http://www.semanticweb.org/motorrad/rennen#KW1>,<http://www.semanticweb.org/motorrad/rennen#KW10>,<http://www.semanticweb.org/motorrad/rennen#KW11>,<http://www.semanticweb.org/motorrad/rennen#KW12>,<http://www.semanticweb.org/motorrad/rennen#KW13>,<http://www.semanticweb.org/motorrad/rennen#KW2>,<http://www.semanticweb.org/motorrad/rennen#KW3>,<http://www.semanticweb.org/motorrad/rennen#KW4>,<http://www.semanticweb.org/motorrad/rennen#KW5>,<http://www.semanticweb.org/motorrad/rennen#KW6>,<http://www.semanticweb.org/motorrad/rennen#KW7>,<http://www.semanticweb.org/motorrad/rennen#KW8>,<http://www.semanticweb.org/motorrad/rennen#KW9>
 
 DisjointClasses: 
     <http://www.semanticweb.org/motorrad/rennen#Africa>,<http://www.semanticweb.org/motorrad/rennen#Asia>,<http://www.semanticweb.org/motorrad/rennen#Australia>,<http://www.semanticweb.org/motorrad/rennen#Europe>,<http://www.semanticweb.org/motorrad/rennen#NorthAmerica>,<http://www.semanticweb.org/motorrad/rennen#SouthAmerica>

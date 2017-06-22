@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://project-best.eu/ontologies/multidimensional/"
+     xml:base="http://project-best.eu/ontologies/multidimensional/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://project-best.eu/ontologies/multidimensional/">
+        <owl:imports rdf:resource="http://project-best.eu/ontologies/location/"/>
+        <owl:imports rdf:resource="http://project-best.eu/ontologies/time/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/ontologies/multidimensional/hasLocation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+        <rdfs:range rdf:resource="http://project-best.eu/ontologies/location/Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/ontologies/multidimensional/hasTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+        <rdfs:range rdf:resource="http://project-best.eu/ontologies/time/Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Austria_2016 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Austria_2016">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Austria"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Year2016"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Austria_201601 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Austria_201601">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Austria"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201601"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Austria_20160103 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Austria_20160103">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Austria"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Day20160103"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Austria_201602 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Austria_201602">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Austria"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201602"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/MD -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/MD">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/Location"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Time"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgCity_2016 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgCity_2016">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgCity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Year2016"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgCity_201601 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgCity_201601">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgCity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201601"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgCity_20160103 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgCity_20160103">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgCity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Day20160103"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgCity_201602 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgCity_201602">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgCity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201602"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgState_2016 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgState_2016">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgState"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Year2016"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgState_201601 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgState_201601">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgState"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201601"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgState_20160103 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgState_20160103">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgState"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Day20160103"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/SalzburgState_201602 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/SalzburgState_201602">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_SalzburgState"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201602"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Vienna_2016 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Vienna_2016">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Vienna"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Year2016"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Vienna_201601 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Vienna_201601">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Vienna"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201601"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Vienna_20160103 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Vienna_20160103">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Vienna"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Day20160103"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/multidimensional/Vienna_201602 -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/multidimensional/Vienna_201602">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/location/BB_Vienna"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/multidimensional/hasTime"/>
+                        <owl:someValuesFrom rdf:resource="http://project-best.eu/ontologies/time/Month201602"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/ontologies/multidimensional/MD"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

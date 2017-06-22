@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="HermiT1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Google Drive/Studium/6 Semester/VO Semantische Technologien/UE Semantische Technologien/HermiT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Google Drive/Studium/6 Semester/VO Semantische Technologien/UE Semantische Technologien/HermiT.jar!/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Google Drive/Studium/6 Semester/VO Semantische Technologien/UE Semantische Technologien/HermiT.jar!/src" />
+    </SOURCES>
+  </library>
+</component>

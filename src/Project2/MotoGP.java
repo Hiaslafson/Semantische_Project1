@@ -7,31 +7,28 @@ package Project2;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.Collections;;
 import java.util.Iterator;
 import java.util.Set;
+
+
 import org.semanticweb.HermiT.Reasoner.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.reasoner.Node;
+import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.OWLEntityRemover;
-import rationals.converters.ToString;
 
 public class MotoGP {
 
@@ -40,8 +37,8 @@ public class MotoGP {
     private static OWLReasoner reasoner;
     private static OWLDataFactory dataFactory;
     private static final String URI = "http://www.semanticweb.org/motorrad/rennen#";
-    private static final String OWLFILEABSOLUTINPUT = MotoGP.class.getResource("motorrad_man_neu.owl").getPath();
-    private static final String OWLFILEABSOLUTOUTPUT = MotoGP.class.getResource("motorrad_xml_new.owl").getPath();
+    private static final String input = MotoGP.class.getResource("motorrad_man_neu.owl").getPath();
+    private static final String output = MotoGP.class.getResource("motorrad_xml_new.owl").getPath();
     private static boolean isInit = false;
 
     public MotoGP() {
@@ -50,7 +47,7 @@ public class MotoGP {
     public static synchronized void init() throws Exception {
         if(!isInit) {
             manager = OWLManager.createOWLOntologyManager();
-            File inputOntologyFile = new File(OWLFILEABSOLUTINPUT);
+            File inputOntologyFile = new File(input);
             ontology = manager.loadOntologyFromOntologyDocument(inputOntologyFile);
             dataFactory = OWLManager.getOWLDataFactory();
             ReasonerFactory factory = new ReasonerFactory();
@@ -61,215 +58,157 @@ public class MotoGP {
 
     }
 
-   /* public static String getIndividualStruct(String structName) {
-      String x;
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create("http://www.semanticweb.org/motorrad#" +structName));
-        x = ToString (Utils.writeSuperclass(owlClass, 1, ontology)[1]);
-        json = json + "],";
-        json = json + "\"objectProperties\":[";
-        JSONArray jsonObjectPropeties = jsonClass.getJSONArray("possibleObjectProperties");
 
-        for(int i = 0; i < jsonObjectPropeties.length(); ++i) {
-            if(i > 0) {
-                json = json + ",";
-            }
-
-            json = json + "{\"propertyFullName\":\"" + jsonObjectPropeties.getJSONObject(i).getString("propertyFullName") + "\"," + "\"propertyShortName\":\"" + jsonObjectPropeties.getJSONObject(i).getString("propertyShortName") + "\"," + "\"ranges\":" + jsonObjectPropeties.getJSONObject(i).getJSONArray("ranges").toString() + "," + "\"objectProperties\":[" + "{ \"individualFullName\":\"\"," + " \"individualShortName\":\"\" }]}";
-        }
-
-        json = json + "],";
-        json = json + "\"dataProperties\":[";
-        JSONArray jsonDataProperties = jsonClass.getJSONArray("possibleDataProperties");
-
-        for(int i = 0; i < jsonDataProperties.length(); ++i) {
-            if(i > 0) {
-                json = json + ",";
-            }
-
-            json = json + "{";
-            json = json + "\"propertyFullName\":\"" + jsonDataProperties.getJSONObject(i).getString("propertyFullName") + "\"," + "\"propertyShortName\":\"" + jsonDataProperties.getJSONObject(i).getString("propertyShortName") + "\"," + "\"propertyValue\":[{" + "\"value\":\"\"" + "}]" + "}";
-        }
-
-        json = json + "]";
-        json = json + "}";
-        return json;
-    } */
-
-    public static String getAllClasses() {
+    public static void getAllClasses() {
         Set<OWLClass> owlClasses = ontology.getClassesInSignature();
-        String strClasses = "[";
-        int i = 0;
 
-        for(Iterator var4 = owlClasses.iterator(); var4.hasNext(); ++i) {
-            OWLClass owlClass = (OWLClass)var4.next();
-            if(i > 0) {
-                strClasses = strClasses + "," +"\n";
-            }
+        for(OWLClass c : owlClasses) {
+            System.out.println("Class: " + c.getIRI().getFragment());
+            System.out.print("  Subclasses: ");
+            for(Node<OWLClass> n : reasoner.getSubClasses(c, true))
+                for(OWLClass s : n.getEntities()) {
+                    System.out.print(" " + s.getIRI().getFragment());
+                }
+            System.out.println();
 
-            strClasses = strClasses + Utils.classToJson(owlClass, ontology, reasoner, false, true );
+            System.out.print("  Disjoint clases: ");
+            for(Node<OWLClass> n : reasoner.getDisjointClasses(c))
+                for(OWLClass s : n.getEntities()) {
+                    System.out.print(" " + s.getIRI().getFragment());
+                }
+            System.out.println();
         }
 
-        strClasses = strClasses + "]" ;
-        return strClasses;
+
+
     }
 
-    public static String getClasses(String headClassName, boolean exportSubclasses) {
+   public static void getClasses(String headClassName, boolean exportSubclasses) {
         OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + headClassName));
-        return '[' + Utils.classToJson(owlClass, ontology, reasoner, exportSubclasses, true) + ']';
+
+            System.out.println("Class: " + owlClass.getIRI().getFragment());
+            if(exportSubclasses == true){
+            System.out.print("  Subclasses: ");
+            for(Node<OWLClass> n : reasoner.getSubClasses(owlClass, true))
+                for(OWLClass s : n.getEntities()) {
+                    System.out.print(" " + s.getIRI().getFragment());
+                }
+            System.out.println(); }
+
+            System.out.print("  Disjoint clases: ");
+            for(Node<OWLClass> n : reasoner.getDisjointClasses(owlClass))
+                for(OWLClass s : n.getEntities()) {
+                    System.out.print(" " + s.getIRI().getFragment());
+                }
+            System.out.println();
+
     }
 
-    public static String getIndividual(String individualName) {
+    public static void getIndividual(String individualName) {
         OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create(URI + individualName));
-        return Utils.individualToJson(owlIndividual, ontology, true, reasoner);
+
+        OWLNamedIndividual owlNamedIndividual = owlIndividual.asOWLNamedIndividual();
+        if(owlNamedIndividual != null) {
+            System.out.println("Individual: " + owlIndividual.getIRI().getFragment());
+
+            NodeSet<OWLClass> classes = reasoner.getTypes(owlNamedIndividual, true);
+            Iterator var = classes.iterator();
+            System.out.println("Individual is from Class:");
+            while(var.hasNext()) {
+                Node<OWLClass> owlClassNode = (Node)var.next();
+
+                for(Iterator var1 = owlClassNode.iterator(); var1.hasNext(); ) {
+                    OWLClass owlClass = (OWLClass)var1.next();
+                    System.out.println(owlClass.getIRI().getFragment());
+                }}
+
+                System.out.println();
+                 System.out.println("Individual has ObjectProperties:");
+
+
+                Iterator var2 = ontology.getObjectPropertyAssertionAxioms(owlIndividual).iterator();
+
+                    if(var2.hasNext()){
+                    OWLObjectPropertyAssertionAxiom propertyAxiom = (OWLObjectPropertyAssertionAxiom)var2.next();
+
+                     Iterator var3 = propertyAxiom.getObjectPropertiesInSignature().iterator();
+                    while(var3.hasNext()) {
+                        OWLObjectProperty prop = (OWLObjectProperty)var3.next();
+                        System.out.print("ObjectProperty:");
+                        System.out.println("    " +prop.getIRI().getFragment());
+
+                        Iterator var4 = reasoner.getObjectPropertyRanges(prop.asOWLObjectProperty(), true).iterator();
+
+                        while(var4.hasNext()) {
+                            Node<OWLClass> classExp = (Node)var4.next();
+
+                            for(Iterator var5 = classExp.getEntities().iterator(); var5.hasNext();) {
+                                OWLClass entity = (OWLClass)var5.next();
+                                System.out.print("Class:");
+                                System.out.println("    " +entity.getIRI().getFragment());
+
+
+                            }
+                        }
+
+                        NodeSet<OWLNamedIndividual> referencedIndividuals = reasoner.getObjectPropertyValues(owlIndividual, prop);
+                        for(Iterator var6 = referencedIndividuals.iterator(); var6.hasNext();) {
+                            Node<OWLNamedIndividual> referencedIndividual = (Node)var6.next();
+                            System.out.print("Type:");
+
+                           System.out.println("     "+referencedIndividual.getRepresentativeElement().getIRI().getFragment());
+                        }
+
+
+                    }}
+
+
+
+
+
+
     }
 
-    public static String queryIndividuals(String varQuery) {
-        varQuery = varQuery.toLowerCase();
-        String[] varQueryArray = varQuery.split("\\s+");
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI));
-        Set<OWLIndividual> allIndividuals = owlClass.getIndividuals(ontology);
-        addIndividualsToSet(allIndividuals, owlClass);
-        Set<OWLIndividual> owlIndiviuals = new HashSet();
-        Iterator var6 = allIndividuals.iterator();
-
-        while(true) {
-            while(var6.hasNext()) {
-                OWLIndividual ind = (OWLIndividual)var6.next();
-                String Fs_jsonStringInd = Utils.individualToJson(ind, ontology, true, reasoner).toLowerCase();
-                String[] var11 = varQueryArray;
-                int var10 = varQueryArray.length;
-
-                for(int var9 = 0; var9 < var10; ++var9) {
-                    String splitquery = var11[var9];
-                    if(Fs_jsonStringInd.contains(splitquery)) {
-                        owlIndiviuals.add(ind);
-                        break;
-                    }
-                }
-            }
-
-            return Utils.individualToJson(owlIndiviuals, ontology, true, reasoner);
-        }
+        System.out.println("-------------------------------------------------------------------------");
     }
 
-    public static String getIndividuals(String className) {
+
+
+
+
+
+
+
+
+
+    public static void getIndividuals(String className) {
         OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
         Set<OWLIndividual> individuals = owlClass.getIndividuals(ontology);
-        return Utils.individualToJson(individuals, ontology, true, reasoner);
-    }
-
-    public static String getIndividualsForClassAndSubClass(String className) {
-        OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
-        Set<OWLIndividual> individuals = owlClass.getIndividuals(ontology);
-        addIndividualsToSet(individuals, owlClass);
-        return Utils.individualToJson(individuals, ontology, true, reasoner);
-    }
-
-    private static void addIndividualsToSet(Set<OWLIndividual> individuals, OWLClass owlClass) {
-        Iterator var3 = owlClass.getSubClasses(ontology).iterator();
-
-        while(var3.hasNext()) {
-            OWLClassExpression subClassExp = (OWLClassExpression)var3.next();
-            OWLClass subClass = subClassExp.asOWLClass();
-            individuals.addAll(subClass.getIndividuals(ontology));
-            addIndividualsToSet(individuals, subClass);
+        for(Iterator var = individuals.iterator(); var.hasNext();) {
+            OWLIndividual individual = (OWLIndividual)var.next();
+            OWLNamedIndividual owlNamedIndividual = individual.asOWLNamedIndividual();
+            getIndividual(owlNamedIndividual.getIRI().getFragment());
         }
 
     }
 
-    /*  public static void changeOrAddIndivdual(String json) throws Exception {
-        System.out.println(json);
-        JSONObject jsonIndividual = new JSONObject(json);
-        String shortName = jsonIndividual.getString("individualShortName");
-        if(shortName != null && !"".equals(shortName)) {
-            try {
-                deleteIndividual(shortName);
-                OWLNamedIndividual individual = addIndividual(shortName);
-                JSONArray classes = jsonIndividual.getJSONArray("individualClasses");
 
-                for(int i = 0; i < classes.length(); ++i) {
-                    JSONObject singeClass = classes.getJSONObject(i);
-                    if(singeClass.has("classShortName") && !singeClass.isNull("classShortName") && !"".equals(singeClass.getString("classShortName"))) {
-                        System.out.println("Class: " + individual + ", " + singeClass.getString("classShortName"));
-                        addClassPropertyToIndividual(individual, singeClass.getString("classShortName"));
-                    }
-                }
 
-                JSONArray objectProperties = jsonIndividual.getJSONArray("objectProperties");
 
-                for(int i = 0; i < objectProperties.length(); ++i) {
-                    JSONObject jsonObjectProperty = objectProperties.getJSONObject(i);
-                    if(!jsonObjectProperty.has("propertyShortName") || jsonObjectProperty.isNull("propertyShortName") || "".equals(jsonObjectProperty.getString("propertyShortName"))) {
-                        throw new Exception("ObjectProeprty could not be added du to an invalid owl URI identifyer.");
-                    }
 
-                    JSONArray refrenecedIndividuals = jsonObjectProperty.getJSONArray("objectProperties");
 
-                    for(int k = 0; k < refrenecedIndividuals.length(); ++k) {
-                        JSONObject refrenecedIndividual = refrenecedIndividuals.getJSONObject(k);
-                        if(refrenecedIndividual.has("individualShortName") && !refrenecedIndividual.isNull("individualShortName") && !"".equals(refrenecedIndividual.getString("individualShortName"))) {
-                            System.out.println("Property: " + individual + ", " + jsonObjectProperty.getString("propertyShortName") + ", " + refrenecedIndividual.getString("individualShortName"));
-                            addObjectPropertyToIndividual(individual, jsonObjectProperty.getString("propertyShortName"), refrenecedIndividual.getString("individualShortName"));
-                        }
-                    }
-                }
-
-                JSONArray dataProperties = jsonIndividual.getJSONArray("dataProperties");
-
-                for(int i = 0; i < dataProperties.length(); ++i) {
-                    JSONObject jsonDataProperty = dataProperties.getJSONObject(i);
-                    if(!jsonDataProperty.has("propertyShortName") || jsonDataProperty.isNull("propertyShortName") || "".equals(jsonDataProperty.getString("propertyShortName"))) {
-                        throw new Exception("Dataproperty could not be added du to an invalid owl URI identifyer");
-                    }
-
-                    JSONArray dataPropertyValues = jsonDataProperty.getJSONArray("propertyValue");
-
-                    for(int k = 0; k < dataPropertyValues.length(); ++k) {
-                        JSONObject dataPropertyValue = dataPropertyValues.getJSONObject(k);
-                        if(dataPropertyValue.has("value") && !dataPropertyValue.isNull("value")) {
-                            System.out.println("Property: " + individual + ", " + jsonDataProperty.getString("propertyShortName") + ", " + dataPropertyValue.getString("value"));
-                            addDataPropertyToIndividual(individual, jsonDataProperty.getString("propertyShortName"), dataPropertyValue.getString("value"));
-                        }
-                    }
-                }
-
-            } catch (Exception var12) {
-                throw var12;
-            }
-        }
-    } */
-
-    public static OWLNamedIndividual addIndividual(String newIndividualName) {
-        OWLNamedIndividual individual = dataFactory.getOWLNamedIndividual(IRI.create(URI + newIndividualName));
-        saveOntology();
-        return individual;
-    }
-
-    public static void addClassPropertyToIndividual(OWLIndividual owlIndividual, String className) {
+    public static void addIndividual(String individualName, String className) {
         OWLClass owlClass = dataFactory.getOWLClass(IRI.create(URI + className));
+        OWLNamedIndividual owlIndividual = dataFactory.getOWLNamedIndividual(IRI.create(URI + individualName));
         OWLClassAssertionAxiom classAssertion = dataFactory.getOWLClassAssertionAxiom(owlClass, owlIndividual);
         manager.addAxiom(ontology, classAssertion);
         reasoner.flush();
         saveOntology();
-    }
-
-    public static void addDataPropertyToIndividual(OWLIndividual owlIndividual, String property, String value) {
-        OWLDataProperty owlProperty = dataFactory.getOWLDataProperty(IRI.create(URI + property));
-        OWLLiteral literal = dataFactory.getOWLLiteral(value, "");
-        OWLDataPropertyAssertionAxiom axiom1 = dataFactory.getOWLDataPropertyAssertionAxiom(owlProperty, owlIndividual, literal);
-        manager.addAxiom(ontology, axiom1);
-        reasoner.flush();
-        saveOntology();
-    }
-
-    public static void addObjectPropertyToIndividual(OWLIndividual owlIndividual, String property, String value) {
-        OWLIndividual owlValueIndivudal = dataFactory.getOWLNamedIndividual(IRI.create(URI + value));
-        OWLObjectProperty owlProperty = dataFactory.getOWLObjectProperty(IRI.create(URI + property));
-        OWLObjectPropertyAssertionAxiom axiom1 = dataFactory.getOWLObjectPropertyAssertionAxiom(owlProperty, owlIndividual, owlValueIndivudal);
-        AddAxiom addAxiom1 = new AddAxiom(ontology, axiom1);
-        manager.applyChange(addAxiom1);
-        reasoner.flush();
-        saveOntology();
+        try {
+            init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void deleteIndividual(String name) throws OWLOntologyStorageException {
@@ -283,13 +222,13 @@ public class MotoGP {
 
     public static void saveOntology() {
         try {
-            File outputOntologyFile = new File(OWLFILEABSOLUTOUTPUT);
+            File outputOntologyFile = new File(output);
             FileOutputStream outputStream = new FileOutputStream(outputOntologyFile);
             manager.saveOntology(ontology, outputStream);
-        } catch (OWLOntologyStorageException var2) {
+        } catch (OWLOntologyStorageException var1) {
+            var1.printStackTrace();
+        } catch (FileNotFoundException var2) {
             var2.printStackTrace();
-        } catch (FileNotFoundException var3) {
-            var3.printStackTrace();
         }
 
     }

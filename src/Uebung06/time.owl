@@ -1,0 +1,754 @@
+@prefix : <http://project-best.eu/ontologies/time/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://project-best.eu/ontologies/time/> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://project-best.eu/ontologies/time/hasDateTime
+
+:hasDateTime a owl:DatatypeProperty , owl:FunctionalProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://project-best.eu/ontologies/time/Day20160103
+
+:Day20160103 a owl:Class ;
+	owl:equivalentClass _:genid1 .
+
+_:genid1 owl:intersectionOf _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first _:genid8 .
+
+_:genid8 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid9 .
+
+_:genid9 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first _:genid11 .
+
+_:genid11 xsd:minInclusive "2016-01-03T00:00:00"^^xsd:dateTime .
+
+_:genid10 rdf:rest rdf:nil .
+
+_:genid7 rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid4 .
+
+_:genid4 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first _:genid6 .
+
+_:genid6 xsd:maxExclusive "2016-01-04T00:00:00"^^xsd:dateTime .
+
+_:genid5 rdf:rest rdf:nil .
+
+_:genid2 rdf:rest rdf:nil .
+
+_:genid1 a owl:Class .
+
+:Day20160103 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201601
+
+:Month201601 a owl:Class ;
+	owl:equivalentClass _:genid12 .
+
+_:genid12 owl:intersectionOf _:genid18 .
+
+_:genid18 a rdf:List ;
+	rdf:first _:genid19 .
+
+_:genid19 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid20 .
+
+_:genid20 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid21 .
+
+_:genid21 a rdf:List ;
+	rdf:first _:genid22 .
+
+_:genid22 xsd:minInclusive "2016-01-01T00:00:00"^^xsd:dateTime .
+
+_:genid21 rdf:rest rdf:nil .
+
+_:genid18 rdf:rest _:genid13 .
+
+_:genid13 a rdf:List ;
+	rdf:first _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid15 .
+
+_:genid15 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid16 .
+
+_:genid16 a rdf:List ;
+	rdf:first _:genid17 .
+
+_:genid17 xsd:maxExclusive "2016-02-01T00:00:00"^^xsd:dateTime .
+
+_:genid16 rdf:rest rdf:nil .
+
+_:genid13 rdf:rest rdf:nil .
+
+_:genid12 a owl:Class .
+
+:Month201601 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201602
+
+:Month201602 a owl:Class ;
+	owl:equivalentClass _:genid23 .
+
+_:genid23 owl:intersectionOf _:genid29 .
+
+_:genid29 a rdf:List ;
+	rdf:first _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid31 .
+
+_:genid31 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid32 .
+
+_:genid32 a rdf:List ;
+	rdf:first _:genid33 .
+
+_:genid33 xsd:minInclusive "2016-02-01T00:00:00"^^xsd:dateTime .
+
+_:genid32 rdf:rest rdf:nil .
+
+_:genid29 rdf:rest _:genid24 .
+
+_:genid24 a rdf:List ;
+	rdf:first _:genid25 .
+
+_:genid25 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid26 .
+
+_:genid26 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid27 .
+
+_:genid27 a rdf:List ;
+	rdf:first _:genid28 .
+
+_:genid28 xsd:maxExclusive "2016-03-01T00:00:00"^^xsd:dateTime .
+
+_:genid27 rdf:rest rdf:nil .
+
+_:genid24 rdf:rest rdf:nil .
+
+_:genid23 a owl:Class .
+
+:Month201602 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201603
+
+:Month201603 a owl:Class ;
+	owl:equivalentClass _:genid34 .
+
+_:genid34 owl:intersectionOf _:genid40 .
+
+_:genid40 a rdf:List ;
+	rdf:first _:genid41 .
+
+_:genid41 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid42 .
+
+_:genid42 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid43 .
+
+_:genid43 a rdf:List ;
+	rdf:first _:genid44 .
+
+_:genid44 xsd:minInclusive "2016-03-01T00:00:00"^^xsd:dateTime .
+
+_:genid43 rdf:rest rdf:nil .
+
+_:genid40 rdf:rest _:genid35 .
+
+_:genid35 a rdf:List ;
+	rdf:first _:genid36 .
+
+_:genid36 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid37 .
+
+_:genid37 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid38 .
+
+_:genid38 a rdf:List ;
+	rdf:first _:genid39 .
+
+_:genid39 xsd:maxExclusive "2016-04-01T00:00:00"^^xsd:dateTime .
+
+_:genid38 rdf:rest rdf:nil .
+
+_:genid35 rdf:rest rdf:nil .
+
+_:genid34 a owl:Class .
+
+:Month201603 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201604
+
+:Month201604 a owl:Class ;
+	owl:equivalentClass _:genid45 .
+
+_:genid45 owl:intersectionOf _:genid51 .
+
+_:genid51 a rdf:List ;
+	rdf:first _:genid52 .
+
+_:genid52 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid53 .
+
+_:genid53 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid54 .
+
+_:genid54 a rdf:List ;
+	rdf:first _:genid55 .
+
+_:genid55 xsd:minInclusive "2016-04-01T00:00:00"^^xsd:dateTime .
+
+_:genid54 rdf:rest rdf:nil .
+
+_:genid51 rdf:rest _:genid46 .
+
+_:genid46 a rdf:List ;
+	rdf:first _:genid47 .
+
+_:genid47 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid48 .
+
+_:genid48 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid49 .
+
+_:genid49 a rdf:List ;
+	rdf:first _:genid50 .
+
+_:genid50 xsd:maxExclusive "2016-05-01T00:00:00"^^xsd:dateTime .
+
+_:genid49 rdf:rest rdf:nil .
+
+_:genid46 rdf:rest rdf:nil .
+
+_:genid45 a owl:Class .
+
+:Month201604 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201605
+
+:Month201605 a owl:Class ;
+	owl:equivalentClass _:genid56 .
+
+_:genid56 owl:intersectionOf _:genid62 .
+
+_:genid62 a rdf:List ;
+	rdf:first _:genid63 .
+
+_:genid63 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid64 .
+
+_:genid64 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid65 .
+
+_:genid65 a rdf:List ;
+	rdf:first _:genid66 .
+
+_:genid66 xsd:minInclusive "2016-05-01T00:00:00"^^xsd:dateTime .
+
+_:genid65 rdf:rest rdf:nil .
+
+_:genid62 rdf:rest _:genid57 .
+
+_:genid57 a rdf:List ;
+	rdf:first _:genid58 .
+
+_:genid58 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid59 .
+
+_:genid59 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid60 .
+
+_:genid60 a rdf:List ;
+	rdf:first _:genid61 .
+
+_:genid61 xsd:maxExclusive "2016-06-01T00:00:00"^^xsd:dateTime .
+
+_:genid60 rdf:rest rdf:nil .
+
+_:genid57 rdf:rest rdf:nil .
+
+_:genid56 a owl:Class .
+
+:Month201605 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201606
+
+:Month201606 a owl:Class ;
+	owl:equivalentClass _:genid67 .
+
+_:genid67 owl:intersectionOf _:genid73 .
+
+_:genid73 a rdf:List ;
+	rdf:first _:genid74 .
+
+_:genid74 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid75 .
+
+_:genid75 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid76 .
+
+_:genid76 a rdf:List ;
+	rdf:first _:genid77 .
+
+_:genid77 xsd:minInclusive "2016-06-01T00:00:00"^^xsd:dateTime .
+
+_:genid76 rdf:rest rdf:nil .
+
+_:genid73 rdf:rest _:genid68 .
+
+_:genid68 a rdf:List ;
+	rdf:first _:genid69 .
+
+_:genid69 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid70 .
+
+_:genid70 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid71 .
+
+_:genid71 a rdf:List ;
+	rdf:first _:genid72 .
+
+_:genid72 xsd:maxExclusive "2016-07-01T00:00:00"^^xsd:dateTime .
+
+_:genid71 rdf:rest rdf:nil .
+
+_:genid68 rdf:rest rdf:nil .
+
+_:genid67 a owl:Class .
+
+:Month201606 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201607
+
+:Month201607 a owl:Class ;
+	owl:equivalentClass _:genid78 .
+
+_:genid78 owl:intersectionOf _:genid84 .
+
+_:genid84 a rdf:List ;
+	rdf:first _:genid85 .
+
+_:genid85 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid86 .
+
+_:genid86 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid87 .
+
+_:genid87 a rdf:List ;
+	rdf:first _:genid88 .
+
+_:genid88 xsd:minInclusive "2016-07-01T00:00:00"^^xsd:dateTime .
+
+_:genid87 rdf:rest rdf:nil .
+
+_:genid84 rdf:rest _:genid79 .
+
+_:genid79 a rdf:List ;
+	rdf:first _:genid80 .
+
+_:genid80 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid81 .
+
+_:genid81 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid82 .
+
+_:genid82 a rdf:List ;
+	rdf:first _:genid83 .
+
+_:genid83 xsd:maxExclusive "2016-08-01T00:00:00"^^xsd:dateTime .
+
+_:genid82 rdf:rest rdf:nil .
+
+_:genid79 rdf:rest rdf:nil .
+
+_:genid78 a owl:Class .
+
+:Month201607 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201608
+
+:Month201608 a owl:Class ;
+	owl:equivalentClass _:genid89 .
+
+_:genid89 owl:intersectionOf _:genid95 .
+
+_:genid95 a rdf:List ;
+	rdf:first _:genid96 .
+
+_:genid96 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid97 .
+
+_:genid97 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid98 .
+
+_:genid98 a rdf:List ;
+	rdf:first _:genid99 .
+
+_:genid99 xsd:minInclusive "2016-08-01T00:00:00"^^xsd:dateTime .
+
+_:genid98 rdf:rest rdf:nil .
+
+_:genid95 rdf:rest _:genid90 .
+
+_:genid90 a rdf:List ;
+	rdf:first _:genid91 .
+
+_:genid91 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid92 .
+
+_:genid92 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid93 .
+
+_:genid93 a rdf:List ;
+	rdf:first _:genid94 .
+
+_:genid94 xsd:maxExclusive "2016-09-01T00:00:00"^^xsd:dateTime .
+
+_:genid93 rdf:rest rdf:nil .
+
+_:genid90 rdf:rest rdf:nil .
+
+_:genid89 a owl:Class .
+
+:Month201608 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201609
+
+:Month201609 a owl:Class ;
+	owl:equivalentClass _:genid100 .
+
+_:genid100 owl:intersectionOf _:genid106 .
+
+_:genid106 a rdf:List ;
+	rdf:first _:genid107 .
+
+_:genid107 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid108 .
+
+_:genid108 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid109 .
+
+_:genid109 a rdf:List ;
+	rdf:first _:genid110 .
+
+_:genid110 xsd:minInclusive "2016-09-01T00:00:00"^^xsd:dateTime .
+
+_:genid109 rdf:rest rdf:nil .
+
+_:genid106 rdf:rest _:genid101 .
+
+_:genid101 a rdf:List ;
+	rdf:first _:genid102 .
+
+_:genid102 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid103 .
+
+_:genid103 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid104 .
+
+_:genid104 a rdf:List ;
+	rdf:first _:genid105 .
+
+_:genid105 xsd:maxExclusive "2016-10-01T00:00:00"^^xsd:dateTime .
+
+_:genid104 rdf:rest rdf:nil .
+
+_:genid101 rdf:rest rdf:nil .
+
+_:genid100 a owl:Class .
+
+:Month201609 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201610
+
+:Month201610 a owl:Class ;
+	owl:equivalentClass _:genid111 .
+
+_:genid111 owl:intersectionOf _:genid117 .
+
+_:genid117 a rdf:List ;
+	rdf:first _:genid118 .
+
+_:genid118 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid119 .
+
+_:genid119 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid120 .
+
+_:genid120 a rdf:List ;
+	rdf:first _:genid121 .
+
+_:genid121 xsd:minInclusive "2016-10-01T00:00:00"^^xsd:dateTime .
+
+_:genid120 rdf:rest rdf:nil .
+
+_:genid117 rdf:rest _:genid112 .
+
+_:genid112 a rdf:List ;
+	rdf:first _:genid113 .
+
+_:genid113 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid114 .
+
+_:genid114 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid115 .
+
+_:genid115 a rdf:List ;
+	rdf:first _:genid116 .
+
+_:genid116 xsd:maxExclusive "2016-11-01T00:00:00"^^xsd:dateTime .
+
+_:genid115 rdf:rest rdf:nil .
+
+_:genid112 rdf:rest rdf:nil .
+
+_:genid111 a owl:Class .
+
+:Month201610 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201611
+
+:Month201611 a owl:Class ;
+	owl:equivalentClass _:genid122 .
+
+_:genid122 owl:intersectionOf _:genid128 .
+
+_:genid128 a rdf:List ;
+	rdf:first _:genid129 .
+
+_:genid129 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid130 .
+
+_:genid130 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid131 .
+
+_:genid131 a rdf:List ;
+	rdf:first _:genid132 .
+
+_:genid132 xsd:minInclusive "2016-11-01T00:00:00"^^xsd:dateTime .
+
+_:genid131 rdf:rest rdf:nil .
+
+_:genid128 rdf:rest _:genid123 .
+
+_:genid123 a rdf:List ;
+	rdf:first _:genid124 .
+
+_:genid124 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid125 .
+
+_:genid125 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid126 .
+
+_:genid126 a rdf:List ;
+	rdf:first _:genid127 .
+
+_:genid127 xsd:maxExclusive "2016-12-01T00:00:00"^^xsd:dateTime .
+
+_:genid126 rdf:rest rdf:nil .
+
+_:genid123 rdf:rest rdf:nil .
+
+_:genid122 a owl:Class .
+
+:Month201611 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Month201612
+
+:Month201612 a owl:Class ;
+	owl:equivalentClass _:genid133 .
+
+_:genid133 owl:intersectionOf _:genid139 .
+
+_:genid139 a rdf:List ;
+	rdf:first _:genid140 .
+
+_:genid140 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid141 .
+
+_:genid141 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid142 .
+
+_:genid142 a rdf:List ;
+	rdf:first _:genid143 .
+
+_:genid143 xsd:minInclusive "2016-12-01T00:00:00"^^xsd:dateTime .
+
+_:genid142 rdf:rest rdf:nil .
+
+_:genid139 rdf:rest _:genid134 .
+
+_:genid134 a rdf:List ;
+	rdf:first _:genid135 .
+
+_:genid135 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid136 .
+
+_:genid136 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid137 .
+
+_:genid137 a rdf:List ;
+	rdf:first _:genid138 .
+
+_:genid138 xsd:maxExclusive "2017-01-01T00:00:00"^^xsd:dateTime .
+
+_:genid137 rdf:rest rdf:nil .
+
+_:genid134 rdf:rest rdf:nil .
+
+_:genid133 a owl:Class .
+
+:Month201612 rdfs:subClassOf :Time .
+# 
+# http://project-best.eu/ontologies/time/Time
+
+:Time a owl:Class ;
+	owl:equivalentClass _:genid144 .
+
+_:genid144 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom xsd:dateTime .
+# 
+# http://project-best.eu/ontologies/time/Year2016
+
+:Year2016 a owl:Class ;
+	owl:equivalentClass _:genid145 .
+
+_:genid145 owl:intersectionOf _:genid151 .
+
+_:genid151 a rdf:List ;
+	rdf:first _:genid152 .
+
+_:genid152 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid153 .
+
+_:genid153 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid154 .
+
+_:genid154 a rdf:List ;
+	rdf:first _:genid155 .
+
+_:genid155 xsd:minInclusive "2016-01-01T00:00:00"^^xsd:dateTime .
+
+_:genid154 rdf:rest rdf:nil .
+
+_:genid151 rdf:rest _:genid146 .
+
+_:genid146 a rdf:List ;
+	rdf:first _:genid147 .
+
+_:genid147 a owl:Restriction ;
+	owl:onProperty :hasDateTime ;
+	owl:someValuesFrom _:genid148 .
+
+_:genid148 a rdfs:Datatype ;
+	owl:onDatatype xsd:dateTime ;
+	owl:withRestrictions _:genid149 .
+
+_:genid149 a rdf:List ;
+	rdf:first _:genid150 .
+
+_:genid150 xsd:maxExclusive "2017-01-01T00:00:00"^^xsd:dateTime .
+
+_:genid149 rdf:rest rdf:nil .
+
+_:genid146 rdf:rest rdf:nil .
+
+_:genid145 a owl:Class .
+
+:Year2016 rdfs:subClassOf :Time .
+# 
+# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi

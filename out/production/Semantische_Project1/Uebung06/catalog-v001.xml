@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://project-best.eu/ontologies/location/" uri="location.owl"/>
+    <uri id="Imports Wizard Entry" name="http://project-best.eu/ontologies/time/" uri="time.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1495109661726" name="http://project-best.eu/ontologies/location/" uri="location.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1495109661726" name="http://project-best.eu/ontologies/multidimensional/" uri="multidimensional.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1495109661726" name="http://www.best-project.org/owl/AIRM" uri="AIRM_OWL_v06.owl"/>
+    </group>
+</catalog>

@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://project-best.eu/ontologies/location/"
+     xml:base="http://project-best.eu/ontologies/location/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://project-best.eu/ontologies/location/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/hasLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/ontologies/location/hasLatitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/hasLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/ontologies/location/hasLongitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/BB_Austria -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/location/BB_Austria">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://project-best.eu/ontologies/location/Location"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLatitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.34</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">49.03</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLongitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.4</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.13</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>bounding box from boundingbox.klokantech.com</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/BB_SalzburgCity -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/location/BB_SalzburgCity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://project-best.eu/ontologies/location/Location"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLatitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47.75</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47.86</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLongitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.97</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.14</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/BB_SalzburgState -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/location/BB_SalzburgState">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://project-best.eu/ontologies/location/Location"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLatitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.93</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48.05</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLongitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.06</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.01</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/BB_Vienna -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/location/BB_Vienna">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://project-best.eu/ontologies/location/Location"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLatitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48.11</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48.34</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLongitude"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.17</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.6</xsd:maxInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:intersectionOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/ontologies/location/Location -->
+
+    <owl:Class rdf:about="http://project-best.eu/ontologies/location/Location">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLatitude"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://project-best.eu/ontologies/location/hasLongitude"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
